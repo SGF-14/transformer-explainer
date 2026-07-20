@@ -36,12 +36,16 @@
 	import { fetchAndMergeChunks } from '~/utils/fetchChunks';
 	import WeightPopovers from '~/components/WeightPopovers.svelte';
 	import { fade } from 'svelte/transition';
-	import { AutoTokenizer } from '@xenova/transformers';
+	import { AutoTokenizer, env } from '@xenova/transformers';
 	import { ex0, ex1, ex2, ex3, ex4 } from '~/constants/examples';
 	import BlockTransition from '~/components/BlockTransition.svelte';
 	import QKV from '~/components/QKV.svelte';
 
 	let active = false;
+
+	// Serve tokenizer files from our own static/models/ (works under the GitHub Pages base path,
+	// no huggingface.co dependency)
+	env.localModelPath = `${base}/models/`;
 
 	// fetch model
 	onMount(async () => {

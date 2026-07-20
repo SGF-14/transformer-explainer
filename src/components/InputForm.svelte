@@ -134,7 +134,7 @@
 				class:selectDisabled
 				class="select-button inline-flex shrink-0 items-center justify-center border border-s-0 border-gray-200 bg-white px-3 py-2 text-center text-xs font-medium text-gray-900 first:rounded-s-lg first:border-s last:rounded-e-lg"
 			>
-				Examples<ChevronDownOutline class="pointer-events-none h-4 w-4 text-gray-500" />
+				أمثلة<ChevronDownOutline class="pointer-events-none h-4 w-4 text-gray-500" />
 			</button>
 			<Dropdown placement="bottom-start" bind:open={dropdownOpen} class="example-dropdown">
 				{#each inputTextExample as text, index}
@@ -167,7 +167,7 @@
 						bind:this={inputRef}
 						contenteditable={!disabled}
 						class="text-box"
-						placeholder="Test your own input text"
+						placeholder="جرِّب نصًا من عندك (بالإنجليزية)"
 						on:focus={onFocusInput}
 						on:input={onInput}
 						on:keydown={handleKeyDown}
@@ -196,15 +196,15 @@
 					<div class="loading"><LoadingDots /></div>
 				{/if}
 				{#if $isMobile}
-					<span class="helper-text"
-						>Try the examples. Please access on a desktop computer to use GPT-2 model.</span
+					<span class="helper-text" dir="rtl"
+						>جرِّب الأمثلة. يُرجى استخدام حاسوب مكتبي لتشغيل نموذج GPT-2.</span
 					>
 				{:else if $isLoaded && $isFetchingModel}
-					<span class="helper-text"
-						>Try the examples while GPT-2 model is being downloaded (600MB)</span
+					<span class="helper-text" dir="rtl"
+						>جرِّب الأمثلة ريثما يكتمل تنزيل نموذج GPT-2 (بحجم 600MB)</span
 					>
 				{:else if exceedLimit}
-					<span class="helper-text">You can enter up to {wordLimit} words.</span>
+					<span class="helper-text" dir="rtl">يمكنك إدخال {wordLimit} كلمة كحد أقصى.</span>
 				{/if}
 			</div>
 		</ButtonGroup>
@@ -218,7 +218,7 @@
 			type="submit"
 			on:click={handleSubmit}
 		>
-			Generate
+			توليد
 		</button>
 	</form>
 	<div class="parameters" data-click="input-parameters">

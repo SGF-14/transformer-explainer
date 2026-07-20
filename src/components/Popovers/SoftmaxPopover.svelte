@@ -27,14 +27,14 @@
 	<div
 		class="softmax-popover-title rounded-t-md border-b border-gray-200 bg-gray-100 px-3 py-2 dark:border-gray-600 dark:bg-gray-700"
 	>
-		<h3 class="font-semibold text-gray-900">
-			Probability of <span class="highlight">"{selected?.token}"</span> token being sampled
+		<h3 class="font-semibold text-gray-900" dir="rtl">
+			احتمال اختيار الرمز <span class="highlight">"{selected?.token}"</span> عند أخذ العينة
 		</h3>
 	</div>
 	<div class="softmax-popover-content">
 		<div class="formula-steps">
 			<div class="formula-step">
-				<div class="step-title">Scaled logit</div>
+				<div class="step-title">اللوجِت المُحجَّم</div>
 				<div class="step-content">
 					<div class="fraction">
 						<div class="frac-top relative">
@@ -84,7 +84,7 @@
 			{/if}
 			<div class="formula-step">
 				<div class="step-title">
-					<span>{$sampling.type === 'top-k' ? 'Top-k' : 'Top-p'} Filtering</span>
+					<span dir="rtl">ترشيح {$sampling.type === 'top-k' ? 'Top-k' : 'Top-p'}</span>
 					<span class="sub-title">({$sampling.type === 'top-k' ? 'k' : 'p'}={$sampling.value})</span
 					>
 				</div>
@@ -93,17 +93,18 @@
 						{#if $sampling.type === 'top-k'}
 							<div class="cases">
 								<div class="case-row">
-									<span class="condition text"
-										>If logit <Katex math={'\\in'} /> Top-{$sampling.value}
+									<span class="condition text" dir="rtl"
+										>إذا كان <span dir="ltr">logit <Katex math={'\\in'} /> Top-{$sampling.value}</span>
 									</span>
 									<span class="number" class:highlight={selected?.rank < $sampling.value}
 										>{getStringNumber(selected?.scaledLogit)}</span
 									>
 								</div>
 								<div class="case-row">
-									<span class="condition text"
-										>Otherwise <span
+									<span class="condition text" dir="rtl"
+										>خلاف ذلك <span
 											class="number infinity"
+											dir="ltr"
 											class:highlight={selected?.rank >= $sampling.value}
 											><Katex math={'-\\infty'} /></span
 										></span
@@ -113,16 +114,16 @@
 						{:else}
 							<div class="cases">
 								<div class="case-row">
-									<span class="condition text">
-										If cumulative prob ≤ {$sampling.value}
+									<span class="condition text" dir="rtl">
+										إذا كان الاحتمال التراكمي <span dir="ltr">≤ {$sampling.value}</span>
 									</span>
 									<span class="number" class:highlight={selected?.rank <= selected?.cutoffIndex}
 										>{getStringNumber(selected?.topPProbability)}</span
 									>
 								</div>
 								<div class="case-row">
-									<span class="condition text"
-										>Otherwise <span
+									<span class="condition text" dir="rtl"
+										>خلاف ذلك <span
 											class="number infinity"
 											class:highlight={selected?.rank > selected?.cutoffIndex}>0</span
 										></span
@@ -176,7 +177,7 @@
 				</div>
 			{:else}
 				<div class="formula-step norm-step">
-					<div class="step-title">Normalization</div>
+					<div class="step-title">التسوية</div>
 					<div class="step-content">
 						{#if selected?.cutoffIndex >= selected?.rank}
 							<div class="fraction">

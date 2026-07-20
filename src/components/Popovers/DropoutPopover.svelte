@@ -11,15 +11,15 @@
 
 <CommonPopover
 	className="dropout-popover"
-	title="Dropout"
+	title="الإسقاط (Dropout)"
 	{offset}
 	{triggeredBy}
 	{trigger}
 	{placement}
 	goTo="article-dropout"
 >
-	<div class="dropout-content">
-		Disables randomly selected neurons. Used only during training.
+	<div class="dropout-content" dir="rtl">
+		يعطّل خلايا عصبية مختارة عشوائيًا. يُستخدم أثناء التدريب فقط.
 	</div></CommonPopover
 >
 

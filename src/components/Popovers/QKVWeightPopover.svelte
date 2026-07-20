@@ -309,7 +309,12 @@
 	// };
 </script>
 
-<WeightPopoverCard id="qkv" title={'Query Key Value'} bind:isAnimationActive {timeline}>
+<WeightPopoverCard
+	id="qkv"
+	title={'الاستعلام والمفتاح والقيمة (QKV)'}
+	bind:isAnimationActive
+	{timeline}
+>
 	<div class="weight-popover-content flex items-center justify-start">
 		<div class="matrix flex flex-col items-center">
 			<div class="tokens" style={`gap:${tokenGap}px`}>
@@ -320,8 +325,8 @@
 		</div>
 		<div class="matrix flex flex-col items-center">
 			<div class="title flex items-center gap-1 self-end">
-				Embeddings<HelpPopover id="qkv-emgeddings" placement="top"
-					>{`Embeddings originate from tokens \nbut evolve through blocks, becoming \nabstract representations.`}</HelpPopover
+				التضمينات<HelpPopover id="qkv-emgeddings" placement="top"
+					>{`تنشأ التضمينات من الرموز \nلكنها تتطور عبر الكتل لتصبح \nتمثيلات مجردة.`}</HelpPopover
 				>
 			</div>
 			<!-- (tokenLen, 768) -->
@@ -340,8 +345,8 @@
 		<div class="operator"><div class="symbol mul">&times;</div></div>
 		<div class="matrix flex flex-col items-center">
 			<div class="title flex items-center gap-1">
-				Q·K·V Weights<HelpPopover id="qkv-weights" placement="top"
-					>{`Transforms embedding vectors into Query, Key, and Value vectors. \nParameters tha learned in training, fixed in prediction.`}</HelpPopover
+				أوزان Q·K·V<HelpPopover id="qkv-weights" placement="top"
+					>{`تحوِّل متجهات التضمين إلى متجهات الاستعلام والمفتاح والقيمة. \nمُعامِلات تُتعلَّم أثناء التدريب وتبقى ثابتة أثناء التنبؤ.`}</HelpPopover
 				>
 			</div>
 			<div class="flex gap-0">
@@ -363,8 +368,8 @@
 		<div class="operator"><div class="symbol plus">+</div></div>
 		<div class="matrix flex flex-col items-center">
 			<div class="title flex items-center gap-1">
-				Q·K·V Bias<HelpPopover id="qkv-bias" placement="top"
-					>{`Offsets added after transformation. \nParameters that learned in training, fixed in prediction.`}</HelpPopover
+				انحياز Q·K·V<HelpPopover id="qkv-bias" placement="top"
+					>{`إزاحات تُضاف بعد التحويل. \nمُعامِلات تُتعلَّم أثناء التدريب وتبقى ثابتة أثناء التنبؤ.`}</HelpPopover
 				>
 			</div>
 			<Matrix

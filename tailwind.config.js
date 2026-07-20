@@ -1,4 +1,5 @@
 import flowbitePlugin from 'flowbite/plugin';
+import defaultTheme from 'tailwindcss/defaultTheme';
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: [
@@ -12,6 +13,9 @@ export default {
 
 	theme: {
 		extend: {
+			fontFamily: {
+				sans: ['Noto Sans Arabic', ...defaultTheme.fontFamily.sans]
+			},
 			screens: {
 				sm: '',
 				xs: ''

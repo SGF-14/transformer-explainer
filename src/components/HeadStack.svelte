@@ -292,8 +292,8 @@
 
 <div class="multi-head flex w-full" data-click="attention-head">
 	<div class="head-title absolute bottom-2 right-3 text-right text-gray-400">
-		<span class="title-text"
-			>Head {$attentionHeadIdxTemp + 1} of {$modelMeta.attention_head_num}</span
+		<span class="title-text" dir="rtl"
+			>الرأس {$attentionHeadIdxTemp + 1} من {$modelMeta.attention_head_num}</span
 		>
 		<button
 			on:click={onClickPrev}

@@ -11,15 +11,15 @@
 
 <CommonPopover
 	className="activation-popover"
-	title="GELU Activation"
+	title="تفعيل GELU"
 	{offset}
 	{triggeredBy}
 	{trigger}
 	{placement}
 	goTo="article-activation"
 >
-	<div class="activation-content">
-		Applies non-linear transformation to linearly transformed output to learn complex patterns.
+	<div class="activation-content" dir="rtl">
+		يطبّق تحويلًا لاخطيًا على المخرجات المحوَّلة خطيًا لتعلُّم الأنماط المعقدة.
 	</div></CommonPopover
 >
 

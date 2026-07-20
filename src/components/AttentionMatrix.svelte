@@ -325,7 +325,7 @@
 				{onMouseOutCell}
 				{showTooltip}
 			/>
-			<div class="matrix-label">Dot product</div>
+			<div class="matrix-label">الضرب النقطي (Dot product)</div>
 			<Tooltip class="popover tooltip">
 				<Katex math={'Q \\cdot K^T'}></Katex>
 			</Tooltip>
@@ -388,7 +388,7 @@
 					{showTooltip}
 				/>
 			</div>
-			<div class="matrix-label">Scaling · Mask</div>
+			<div class="matrix-label">التحجيم · القناع</div>
 			<Tooltip class="popover tooltip">
 				<Katex math={'\\frac{QK^T}{\\sqrt{d_k}} + M'}></Katex>
 			</Tooltip>
@@ -454,7 +454,7 @@
 				/>
 			</div>
 
-			<div class="matrix-label">Softmax · Dropout</div>
+			<div class="matrix-label">Softmax · الإسقاط</div>
 			<Tooltip class="popover tooltip">
 				<Katex math={'\\text{Dropout}(\\text{softmax}(\\frac{QK^T}{\\sqrt{d_k}} + M))'}></Katex>
 			</Tooltip>
@@ -488,7 +488,7 @@
 			/>
 
 			<div class="matrix-label flex items-center gap-1">
-				Attention <ZoomInOutline></ZoomInOutline>
+				الانتباه (Attention) <ZoomInOutline></ZoomInOutline>
 			</div>
 		</div>
 	</div>

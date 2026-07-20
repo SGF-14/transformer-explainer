@@ -51,7 +51,7 @@
 		data-click="attention-step-title"
 	>
 		<div class="w-max" on:click={(e) => onClickReadMore(e, 'self-attention')}>
-			Multi-head Self Attention
+			الانتباه الذاتي متعدد الرؤوس (Self-Attention)
 		</div>
 	</div>
 	<div class="content relative">
@@ -68,7 +68,7 @@
 				>
 					<div class="qkv flex h-full flex-col justify-center gap-[5rem] pl-[6rem]">
 						<div class="column key">
-							<div class="head1 title">Key</div>
+							<div class="head1 title">المفتاح (Key)</div>
 
 							{#each $tokens as token, index}
 								<div
@@ -80,13 +80,13 @@
 									<div class={`vector x1-12 ${keyHeadVectorColor}`}></div>
 								</div>
 								<Tooltip placement="right" class="popover"
-									>Key, Head {$attentionHeadIdx + 1}, vector({$modelMeta.dimension /
+									>المفتاح (Key)، الرأس {$attentionHeadIdx + 1}، vector({$modelMeta.dimension /
 										$modelMeta.attention_head_num})</Tooltip
 								>
 							{/each}
 						</div>
 						<div class="column query">
-							<div class="head1 title">Query</div>
+							<div class="head1 title">الاستعلام (Query)</div>
 							{#each $tokens as token, index}
 								<div
 									class="head1 cell x1-12 query text-xs"
@@ -97,20 +97,20 @@
 									<div class={`vector x1-12  ${queryHeadVectorColor}`}></div>
 								</div>
 								<Tooltip placement="right" class="popover"
-									>Query, Head {$attentionHeadIdx + 1}, vector({$modelMeta.dimension /
+									>الاستعلام (Query)، الرأس {$attentionHeadIdx + 1}، vector({$modelMeta.dimension /
 										$modelMeta.attention_head_num})</Tooltip
 								>
 							{/each}
 						</div>
 						<div class="column value">
-							<div class="head1 title">Value</div>
+							<div class="head1 title">القيمة (Value)</div>
 							{#each $tokens as token, index}
 								<div class="head1 cell x1-12 text-xs" class:last={index === $tokens.length - 1}>
 									<span class="label float">{token}</span>
 									<div class={`vector x1-12 ${valHeadVectorColor}`}></div>
 								</div>
 								<Tooltip placement="right" class="popover"
-									>Value, Head {$attentionHeadIdx + 1}, vector({$modelMeta.dimension /
+									>القيمة (Value)، الرأس {$attentionHeadIdx + 1}، vector({$modelMeta.dimension /
 										$modelMeta.attention_head_num})</Tooltip
 								>
 							{/each}
@@ -121,13 +121,13 @@
 					</div>
 					<div class="head-out mx-[2rem]">
 						<div class="column out">
-							<div class="head1 title">Out</div>
+							<div class="head1 title">المخرجات (Out)</div>
 							{#each $tokens as token, index}
 								<div class="head1 cell x1-12" class:last={index === $tokens.length - 1}>
 									<div class={`vector x1-12 ${outputVectorColor}`}></div>
 								</div>
 								<Tooltip placement="right" class="popover"
-									>Attention Out, Head 1, vector({$modelMeta.dimension /
+									>مخرجات الانتباه (Out)، الرأس 1، vector({$modelMeta.dimension /
 										$modelMeta.attention_head_num})</Tooltip
 								>
 							{/each}

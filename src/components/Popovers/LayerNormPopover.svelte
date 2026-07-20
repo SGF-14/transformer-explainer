@@ -11,15 +11,15 @@
 
 <CommonPopover
 	className="ln-popover"
-	title="Layer Normalization"
+	title="تسوية الطبقة (Layer Normalization)"
 	{offset}
 	{triggeredBy}
 	{trigger}
 	{placement}
 	goTo="article-ln"
 >
-	<div class="ln-content">
-		Normalizes layer input to have a standard distribution for stability.
+	<div class="ln-content" dir="rtl">
+		يسوّي مُدخل الطبقة ليتبع توزيعًا معياريًا من أجل الاستقرار.
 	</div></CommonPopover
 >
 

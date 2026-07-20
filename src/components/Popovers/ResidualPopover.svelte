@@ -12,7 +12,7 @@
 
 <CommonPopover
 	className="residual-popover"
-	title="Residual Connection"
+	title="الوصلة المتبقية (Residual Connection)"
 	{offset}
 	{triggeredBy}
 	{trigger}
@@ -20,8 +20,8 @@
 	{reference}
 	goTo="article-residual"
 >
-	<div class="residual-content">
-		Adds layer input to output to help preserve information.
+	<div class="residual-content" dir="rtl">
+		تضيف مُدخل الطبقة إلى مُخرجها للمساعدة في الحفاظ على المعلومات.
 	</div></CommonPopover
 >
 

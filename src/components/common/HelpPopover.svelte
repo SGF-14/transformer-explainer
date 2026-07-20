@@ -56,7 +56,7 @@
 				class="more-btn mt-1 text-blue-600 hover:underline"
 				on:click={(e) => onClickReadMore(e, goTo, { value: id })}
 			>
-				Read more
+				اقرأ المزيد
 			</div>
 		{/if}
 	</div></Popover

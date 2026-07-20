@@ -4,144 +4,142 @@
 	import Katex from '~/utils/Katex.svelte';
 </script>
 
-<div id="description">
+<div id="description" dir="rtl">
 	<div class="article-section" data-click="article-intro">
-		<h1>What is a Transformer?</h1>
+		<h1>ما هو المحوِّل (Transformer)؟</h1>
 
 		<p>
-			Transformer is a neural network architecture that has fundamentally changed the approach to
-			Artificial Intelligence. Transformer was first introduced in the seminal paper
+			المحوِّل (Transformer) هو بنية شبكة عصبية غيّرت جذريًا نهج الذكاء الاصطناعي. قُدِّم المحوِّل
+			لأول مرة في الورقة البحثية الرائدة
 			<a
 				href="https://dl.acm.org/doi/10.5555/3295222.3295349"
 				title="ACM Digital Library"
 				target="_blank">"Attention is All You Need"</a
 			>
-			in 2017 and has since become the go-to architecture for deep learning models, powering text-generative
-			models like OpenAI's <strong>GPT</strong>, Meta's <strong>Llama</strong>, and Google's
-			<strong>Gemini</strong>. Beyond text, Transformer is also applied in
+			عام 2017، وأصبح منذ ذلك الحين البنية المفضّلة لنماذج التعلم العميق، حيث يشغّل نماذج توليد
+			النصوص مثل <strong>GPT</strong> من OpenAI و<strong>Llama</strong> من Meta و<strong
+				>Gemini</strong
+			> من Google. وإلى جانب النصوص، يُستخدم المحوِّل أيضًا في
 			<a
 				href="https://huggingface.co/learn/audio-course/en/chapter3/introduction"
 				title="Hugging Face"
-				target="_blank">audio generation</a
-			>,
-			<a
+				target="_blank">توليد الصوت</a
+			>
+			و<a
 				href="https://huggingface.co/learn/computer-vision-course/unit3/vision-transformers/vision-transformers-for-image-classification"
 				title="Hugging Face"
-				target="_blank">image recognition</a
-			>,
-			<a href="https://elifesciences.org/articles/82819" title="eLife"
-				>protein structure prediction</a
-			>, and even
+				target="_blank">التعرف على الصور</a
+			>
+			و<a href="https://elifesciences.org/articles/82819" title="eLife"
+				>التنبؤ ببنية البروتينات</a
+			>
+			وحتى في
 			<a
 				href="https://www.deeplearning.ai/the-batch/reinforcement-learning-plus-transformers-equals-efficiency/"
 				title="Deep Learning AI"
-				target="_blank">game playing</a
-			>, demonstrating its versatility across numerous domains.
+				target="_blank">ممارسة الألعاب</a
+			>، مما يدل على تعدد استخداماته في مجالات عديدة.
 		</p>
 		<p>
-			Fundamentally, text-generative Transformer models operate on the principle of <strong
-				>next-word prediction</strong
-			>: given a text prompt from the user, what is the <em>most probable next word</em> that will follow
-			this input? The core innovation and power of Transformers lie in their use of self-attention mechanism,
-			which allows them to process entire sequences and capture long-range dependencies more effectively
-			than previous architectures.
+			في جوهرها، تعمل نماذج المحوِّلات المولِّدة للنص على مبدأ <strong
+				>التنبؤ بالكلمة التالية (next-word prediction)</strong
+			>: بالنظر إلى النص الذي يُدخله المستخدم، ما <em>الكلمة التالية الأكثر احتمالًا</em> بعد هذا
+			الإدخال؟ يكمن الابتكار الجوهري وقوة المحوِّلات في استخدامها لآلية الانتباه الذاتي
+			(self-attention)، التي تتيح لها معالجة التسلسلات كاملةً والتقاط العلاقات بعيدة المدى بفعالية
+			أكبر من البنى السابقة.
 		</p>
 		<p>
-			GPT-2 family of models are prominent examples of text-generative Transformers. Transformer
-			Explainer is powered by the
+			تُعد عائلة نماذج GPT-2 من الأمثلة البارزة على المحوِّلات المولِّدة للنص. يعمل «شارح
+			المحوِّلات» بواسطة نموذج
 			<a href="https://huggingface.co/openai-community/gpt2" title="Hugging Face" target="_blank"
 				>GPT-2</a
 			>
-			(small) model which has 124 million parameters. While it is not the latest or most powerful Transformer
-			model, it shares many of the same architectural components and principles found in the current
-			state-of-the-art models making it an ideal starting point for understanding the basics.
+			(الصغير) الذي يضم 124 مليون مُعامِل. ورغم أنه ليس أحدث نماذج المحوِّلات أو أقواها، فإنه يشترك
+			في كثير من المكونات والمبادئ المعمارية الموجودة في أحدث النماذج الحالية، مما يجعله نقطة
+			انطلاق مثالية لفهم الأساسيات.
 		</p>
 	</div>
 
 	<div class="article-section" data-click="article-overview">
-		<h1>Transformer Architecture</h1>
+		<h1>بنية المحوِّل (Transformer Architecture)</h1>
 
 		<p>
-			Every text-generative Transformer consists of these <strong>three key components</strong>:
+			يتكوّن كل محوِّل مولِّد للنص من هذه <strong>المكونات الرئيسية الثلاثة</strong>:
 		</p>
 		<ol>
 			<li>
-				<strong class="bold-purple">Embedding</strong>: Text input is divided into smaller units
-				called tokens, which can be words or subwords. These tokens are converted into numerical
-				vectors called embeddings, which capture the semantic meaning of words.
+				<strong class="bold-purple">التضمين (Embedding)</strong>: يُقسَّم النص المُدخل إلى وحدات
+				أصغر تسمى الرموز (Tokens)، وقد تكون كلمات أو أجزاء كلمات. تُحوَّل هذه الرموز إلى متجهات
+				عددية تسمى التضمينات (Embeddings)، تلتقط المعنى الدلالي للكلمات.
 			</li>
 			<li>
-				<strong class="bold-purple">Transformer Block</strong> is the fundamental building block of
-				the model that processes and transforms the input data. Each block includes:
+				<strong class="bold-purple">كتلة المحوِّل (Transformer Block)</strong> هي وحدة البناء
+				الأساسية في النموذج التي تعالج البيانات المُدخلة وتحوِّلها. تتضمن كل كتلة:
 				<ul class="">
 					<li>
-						<strong>Attention Mechanism</strong>, the core component of the Transformer block. It
-						allows tokens to communicate with other tokens, capturing contextual information and
-						relationships between words.
+						<strong>آلية الانتباه (Attention Mechanism)</strong>، المكوّن الجوهري في كتلة
+						المحوِّل. تتيح للرموز التواصل مع الرموز الأخرى، فتلتقط المعلومات السياقية والعلاقات
+						بين الكلمات.
 					</li>
 					<li>
-						<strong>MLP (Multilayer Perceptron) Layer</strong>, a feed-forward network that operates
-						on each token independently. While the goal of the attention layer is to route
-						information between tokens, the goal of the MLP is to refine each token's
-						representation.
+						<strong>طبقة الشبكة العصبية متعددة الطبقات (MLP)</strong>، وهي شبكة تغذية أمامية تعمل
+						على كل رمز على حدة. بينما تهدف طبقة الانتباه إلى توجيه المعلومات بين الرموز، فإن هدف
+						MLP هو صقل تمثيل كل رمز.
 					</li>
 				</ul>
 			</li>
 			<li>
-				<strong class="bold-purple">Output Probabilities</strong>: The final linear and softmax
-				layers transform the processed embeddings into probabilities, enabling the model to make
-				predictions about the next token in a sequence.
+				<strong class="bold-purple">احتمالات المخرجات (Output Probabilities)</strong>: تحوِّل
+				الطبقة الخطية النهائية وطبقة softmax التضمينات المُعالجة إلى احتمالات، مما يمكّن النموذج
+				من التنبؤ بالرمز التالي في التسلسل.
 			</li>
 		</ol>
 	</div>
 
 	<div class="article-section" id="embedding" data-click="article-embedding">
-		<h2>Embedding</h2>
+		<h2>التضمين (Embedding)</h2>
 		<p>
-			Let's say you want to generate text using a Transformer model. You add the prompt like this
-			one: <code>“Data visualization empowers users to”</code>. This input needs to be converted
-			into a format that the model can understand and process. That is where embedding comes in: it
-			transforms the text into a numerical representation that the model can work with. To convert a
-			prompt into embedding, we need to 1) tokenize the input, 2) obtain token embeddings, 3) add
-			positional information, and finally 4) add up token and position encodings to get the final
-			embedding. Let’s see how each of these steps is done.
+			لنفترض أنك تريد توليد نص باستخدام نموذج محوِّل. تضيف نصًا مثل هذا:
+			<code>“Data visualization empowers users to”</code>. يجب تحويل هذا الإدخال إلى صيغة يستطيع
+			النموذج فهمها ومعالجتها. وهنا يأتي دور التضمين: فهو يحوِّل النص إلى تمثيل عددي يمكن للنموذج
+			العمل به. لتحويل النص إلى تضمين، نحتاج إلى: 1) تقسيم الإدخال إلى رموز، 2) الحصول على تضمينات
+			الرموز، 3) إضافة معلومات الموضع، وأخيرًا 4) جمع ترميزات الرموز والمواضع للحصول على التضمين
+			النهائي. لنرَ كيف تُنفَّذ كل خطوة من هذه الخطوات.
 		</p>
 		<div class="figure">
 			<img src="./article_assets/embedding.png" width="65%" />
 		</div>
 		<div class="figure-caption">
-			Figure <span class="attention">1</span>. Expanding the Embedding layer view, showing how the
-			input prompt is converted to a vector representation. The process involves
-			<span class="fig-numbering">(1)</span> Tokenization, (2) Token Embedding, (3) Positional Encoding,
-			and (4) Final Embedding.
+			الشكل <span class="attention">1</span>. عرض موسَّع لطبقة التضمين (Embedding) يوضح كيفية تحويل
+			النص المُدخل إلى تمثيل متجهي. تتضمن العملية <span class="fig-numbering">(1)</span> التقسيم إلى
+			رموز، (2) تضمين الرموز، (3) الترميز الموضعي، و(4) التضمين النهائي. (الشكل باللغة الإنجليزية.)
 		</div>
 		<div class="article-subsection">
-			<h3>Step 1: Tokenization</h3>
+			<h3>الخطوة 1: التقسيم إلى رموز (Tokenization)</h3>
 			<p>
-				Tokenization is the process of breaking down the input text into smaller, more manageable
-				pieces called tokens. These tokens can be a word or a subword. The words <code>"Data"</code>
-				and <code>"visualization"</code> correspond to unique tokens, while the word
+				التقسيم إلى رموز هو عملية تجزئة النص المُدخل إلى قطع أصغر يسهل التعامل معها تسمى الرموز
+				(Tokens). قد يكون الرمز كلمة أو جزءًا من كلمة. تقابل الكلمتان <code>"Data"</code>
+				و<code>"visualization"</code> رمزين فريدين، بينما تُقسَّم كلمة
 				<code>"empowers"</code>
-				is split into two tokens. The full vocabulary of tokens is decided before training the model:
-				GPT-2's vocabulary has <code>50,257</code> unique tokens. Now that we split our input text into
-				tokens with distinct IDs, we can obtain their vector representation from embeddings.
+				إلى رمزين. تُحدَّد المفردات الكاملة للرموز قبل تدريب النموذج: تضم مفردات GPT-2
+				<code>50,257</code> رمزًا فريدًا. والآن بعد أن قسّمنا النص المُدخل إلى رموز ذات معرِّفات مميزة،
+				يمكننا الحصول على تمثيلها المتجهي من التضمينات.
 			</p>
 		</div>
 		<div class="article-subsection" id="article-token-embedding">
-			<h3>Step 2. Token Embedding</h3>
+			<h3>الخطوة 2. تضمين الرموز (Token Embedding)</h3>
 			<p>
-				GPT-2 (small) represents each token in the vocabulary as a 768-dimensional vector; the
-				dimension of the vector depends on the model. These embedding vectors are stored in a matrix
-				of shape <code>(50,257, 768)</code>, containing approximately 39 million parameters! This
-				extensive matrix allows the model to assign semantic meaning to each token.
+				يمثّل GPT-2 (الصغير) كل رمز في المفردات بمتجه ذي 768 بُعدًا؛ ويعتمد بُعد المتجه على
+				النموذج. تُخزَّن متجهات التضمين هذه في مصفوفة بأبعاد <code>(50,257, 768)</code> تحتوي على
+				نحو 39 مليون مُعامِل! تتيح هذه المصفوفة الضخمة للنموذج إسناد معنى دلالي لكل رمز.
 			</p>
 		</div>
 		<div class="article-subsection" id="article-positional-embedding">
-			<h3>Step 3. Positional Encoding</h3>
+			<h3>الخطوة 3. الترميز الموضعي (Positional Encoding)</h3>
 			<p>
-				The Embedding layer also encodes information about each token's position in the input
-				prompt. Different models use various methods for positional encoding. GPT-2 trains its own
-				positional encoding matrix from scratch, integrating it directly into the training process.
+				تُرمِّز طبقة التضمين أيضًا معلومات عن موضع كل رمز في النص المُدخل. تستخدم النماذج المختلفة
+				طرقًا متنوعة للترميز الموضعي. يدرّب GPT-2 مصفوفة الترميز الموضعي الخاصة به من الصفر،
+				مدمجًا إياها مباشرة في عملية التدريب.
 			</p>
 
 			<!-- <div class="article-subsection-l2">
@@ -187,39 +185,35 @@
   </div> -->
 		</div>
 		<div class="article-subsection">
-			<h3>Step 4. Final Embedding</h3>
+			<h3>الخطوة 4. التضمين النهائي (Final Embedding)</h3>
 			<p>
-				Finally, we sum the token and positional encodings to get the final embedding
-				representation. This combined representation captures both the semantic meaning of the
-				tokens and their position in the input sequence.
+				أخيرًا، نجمع ترميزات الرموز والترميزات الموضعية للحصول على تمثيل التضمين النهائي. يلتقط
+				هذا التمثيل المُجمَّع المعنى الدلالي للرموز وموضعها في تسلسل الإدخال معًا.
 			</p>
 		</div>
 	</div>
 
 	<div class="article-section" data-click="article-transformer-block">
-		<h2>Transformer Block</h2>
+		<h2>كتلة المحوِّل (Transformer Block)</h2>
 
 		<p>
-			The core of the Transformer's processing lies in the Transformer block, which comprises
-			multi-head self-attention and a Multi-Layer Perceptron layer. Most models consist of multiple
-			such blocks that are stacked sequentially one after the other. The token representations
-			evolve through layers, from the first block to the last one, allowing the model to build up an
-			intricate understanding of each token. This layered approach leads to higher-order
-			representations of the input. The GPT-2 (small) model we are examining consists of <code
-				>12</code
-			> such blocks.
+			يكمن جوهر معالجة المحوِّل في كتلة المحوِّل، التي تضم الانتباه الذاتي متعدد الرؤوس وطبقة
+			الشبكة العصبية متعددة الطبقات (MLP). تتكون معظم النماذج من عدة كتل من هذا النوع مكدَّسة
+			تسلسليًا واحدة تلو الأخرى. تتطور تمثيلات الرموز عبر الطبقات، من الكتلة الأولى إلى الأخيرة،
+			مما يتيح للنموذج بناء فهم دقيق لكل رمز. يؤدي هذا النهج الطبقي إلى تمثيلات أعلى مستوى
+			للإدخال. يتكون نموذج GPT-2 (الصغير) الذي ندرسه من <code>12</code> كتلة من هذا النوع.
 		</p>
 	</div>
 
 	<div class="article-section" id="self-attention" data-click="article-attention">
-		<h3>Multi-Head Self-Attention</h3>
+		<h3>الانتباه الذاتي متعدد الرؤوس (Multi-Head Self-Attention)</h3>
 		<p>
-			The self-attention mechanism enables the model to focus on relevant parts of the input
-			sequence, allowing it to capture complex relationships and dependencies within the data. Let’s
-			look at how this self-attention is computed step-by-step.
+			تمكِّن آلية الانتباه الذاتي النموذج من التركيز على الأجزاء المهمة من تسلسل الإدخال، مما يتيح
+			له التقاط العلاقات والارتباطات المعقدة داخل البيانات. لنستعرض كيفية حساب هذا الانتباه الذاتي
+			خطوة بخطوة.
 		</p>
 		<div class="article-subsection-l2">
-			<h4>Step 1: Query, Key, and Value Matrices</h4>
+			<h4>الخطوة 1: مصفوفات الاستعلام (Query) والمفتاح (Key) والقيمة (Value)</h4>
 
 			<div class="figure pt-10">
 				<img src="./article_assets/QKV.png" width="80%" />
@@ -233,282 +227,265 @@
 				</div>
 			</div>
 			<div class="figure-caption">
-				Figure <span class="attention">2</span>. Computing Query, Key, and Value matrices from the
-				original embedding.
+				الشكل <span class="attention">2</span>. حساب مصفوفات الاستعلام (Query) والمفتاح (Key)
+				والقيمة (Value) من التضمين الأصلي. (الشكل باللغة الإنجليزية.)
 			</div>
 
 			<p>
-				Each token's embedding vector is transformed into three vectors:
-				<span class="q-color">Query (Q)</span>,
-				<span class="k-color">Key (K)</span>, and
-				<span class="v-color">Value (V)</span>. These vectors are derived by multiplying the input
-				embedding matrix with learned weight matrices for
-				<span class="q-color">Q</span>,
-				<span class="k-color">K</span>, and
-				<span class="v-color">V</span>. Here's a web search analogy to help us build some intuition
-				behind these matrices:
+				يُحوَّل متجه التضمين لكل رمز إلى ثلاثة متجهات:
+				<span class="q-color">الاستعلام (Q)</span>
+				و<span class="k-color">المفتاح (K)</span>
+				و<span class="v-color">القيمة (V)</span>. تُشتق هذه المتجهات بضرب مصفوفة تضمين الإدخال في
+				مصفوفات أوزان مُتعلَّمة لكل من
+				<span class="q-color">Q</span>
+				و<span class="k-color">K</span>
+				و<span class="v-color">V</span>. وإليك تشبيهًا بالبحث في الويب يساعدنا على بناء حدس حول
+				هذه المصفوفات:
 			</p>
 			<ul>
 				<li>
-					<strong class="q-color font-medium">Query (Q)</strong> is the search text you type in the
-					search engine bar. This is the token you want to
-					<em>"find more information about"</em>.
+					<strong class="q-color font-medium">الاستعلام (Query)</strong> هو نص البحث الذي تكتبه في
+					شريط محرك البحث. إنه الرمز الذي تريد
+					<em>«إيجاد مزيد من المعلومات عنه»</em>.
 				</li>
 				<li>
-					<strong class="k-color font-medium">Key (K)</strong> is the title of each web page in the search
-					result window. It represents the possible tokens the query can attend to.
+					<strong class="k-color font-medium">المفتاح (Key)</strong> هو عنوان كل صفحة ويب في نافذة
+					نتائج البحث. يمثّل الرموز المحتملة التي يمكن للاستعلام الانتباه إليها.
 				</li>
 				<li>
-					<strong class="v-color font-medium">Value (V)</strong> is the actual content of web pages shown.
-					Once we matched the appropriate search term (Query) with the relevant results (Key), we want
-					to get the content (Value) of the most relevant pages.
+					<strong class="v-color font-medium">القيمة (Value)</strong> هي المحتوى الفعلي لصفحات
+					الويب المعروضة. بعد أن طابقنا مصطلح البحث المناسب (الاستعلام) مع النتائج ذات الصلة
+					(المفتاح)، نريد الحصول على محتوى (القيمة) الصفحات الأكثر صلة.
 				</li>
 			</ul>
 			<p>
-				By using these QKV values, the model can calculate attention scores, which determine how
-				much focus each token should receive when generating predictions.
+				باستخدام قيم QKV هذه، يستطيع النموذج حساب درجات الانتباه التي تحدد مقدار التركيز الذي
+				ينبغي أن يحظى به كل رمز عند توليد التنبؤات.
 			</p>
 		</div>
 		<div class="article-subsection-l2">
-			<h4>Step 2: Multi-Head Splitting</h4>
+			<h4>الخطوة 2: التقسيم إلى رؤوس متعددة (Multi-Head Splitting)</h4>
 			<p>
-				<span class="q-color">Query</span>, <span class="k-color">key</span>, and
-				<span class="v-color">Value</span>
-				vectors are split into multiple heads—in GPT-2 (small)'s case, into
-				<code>12</code> heads. Each head processes a segment of the embeddings independently, capturing
-				different syntactic and semantic relationships. This design facilitates parallel learning of
-				diverse linguistic features, enhancing the model's representational power.
+				تُقسَّم متجهات <span class="q-color">الاستعلام</span> و<span class="k-color">المفتاح</span>
+				و<span class="v-color">القيمة</span>
+				إلى عدة رؤوس — في حالة GPT-2 (الصغير)، إلى
+				<code>12</code> رأسًا. يعالج كل رأس جزءًا من التضمينات على نحو مستقل، ملتقطًا علاقات نحوية
+				ودلالية مختلفة. يسهّل هذا التصميم التعلم المتوازي لسمات لغوية متنوعة، مما يعزز القدرة
+				التمثيلية للنموذج.
 			</p>
 		</div>
 		<div class="article-subsection-l2">
-			<h4>Step 3: Masked Self-Attention</h4>
+			<h4>الخطوة 3: الانتباه الذاتي المُقنَّع (Masked Self-Attention)</h4>
 			<p>
-				In each head, we perform masked self-attention calculations. This mechanism allows the model
-				to generate sequences by focusing on relevant parts of the input while preventing access to
-				future tokens.
+				في كل رأس، نُجري حسابات الانتباه الذاتي المُقنَّع. تتيح هذه الآلية للنموذج توليد التسلسلات
+				بالتركيز على الأجزاء المهمة من الإدخال مع منع الوصول إلى الرموز المستقبلية.
 			</p>
 
 			<div class="figure">
 				<img src="./article_assets/attention.png" width="80%" align="middle" />
 			</div>
 			<div class="figure-caption">
-				Figure <span class="attention">3</span>. Using Query, Key, and Value matrices to calculate
-				masked self-attention.
+				الشكل <span class="attention">3</span>. استخدام مصفوفات الاستعلام والمفتاح والقيمة لحساب
+				الانتباه الذاتي المُقنَّع. (الشكل باللغة الإنجليزية.)
 			</div>
 
 			<ul>
 				<li>
-					<strong>Attention Score</strong>: The dot product of
-					<span class="q-color">Query</span>
-					and <span class="k-color">Key</span> matrices determines the alignment of each query with each
-					key, producing a square matrix that reflects the relationship between all input tokens.
+					<strong>درجة الانتباه (Attention Score)</strong>: يحدد الضرب النقطي لمصفوفتَي
+					<span class="q-color">الاستعلام</span>
+					و<span class="k-color">المفتاح</span> مدى توافق كل استعلام مع كل مفتاح، منتجًا مصفوفة
+					مربعة تعكس العلاقة بين جميع رموز الإدخال.
 				</li>
 				<li>
-					<strong>Masking</strong>: A mask is applied to the upper triangle of the attention matrix
-					to prevent the model from accessing future tokens, setting these values to negative
-					infinity. The model needs to learn how to predict the next token without “peeking” into
-					the future.
+					<strong>التقنيع (Masking)</strong>: يُطبَّق قناع على المثلث العلوي من مصفوفة الانتباه
+					لمنع النموذج من الوصول إلى الرموز المستقبلية، بتعيين هذه القيم إلى سالب اللانهاية. يجب
+					أن يتعلم النموذج كيفية التنبؤ بالرمز التالي دون «اختلاس النظر» إلى المستقبل.
 				</li>
 				<li>
-					<strong>Softmax</strong>: After masking, the attention score is converted into probability
-					by the softmax operation which takes the exponent of each attention score. Each row of the
-					matrix sums up to one and indicates the relevance of every other token to the left of it.
+					<strong>Softmax</strong>: بعد التقنيع، تُحوَّل درجة الانتباه إلى احتمال بواسطة عملية
+					softmax التي تأخذ الدالة الأسية لكل درجة انتباه. يبلغ مجموع كل صف في المصفوفة واحدًا،
+					ويشير إلى مدى صلة كل رمز من الرموز السابقة له.
 				</li>
 			</ul>
 		</div>
 		<div class="article-subsection-l2">
-			<h4>Step 4: Output and Concatenation</h4>
+			<h4>الخطوة 4: المخرجات والدمج (Output and Concatenation)</h4>
 			<p>
-				The model uses the masked self-attention scores and multiplies them with the
-				<span class="v-color">Value</span> matrix to get the
-				<span class="purple-color">final output</span>
-				of the self-attention mechanism. GPT-2 has <code>12</code> self-attention heads, each capturing
-				different relationships between tokens. The outputs of these heads are concatenated and passed
-				through a linear projection.
+				يستخدم النموذج درجات الانتباه الذاتي المُقنَّع ويضربها في مصفوفة
+				<span class="v-color">القيمة</span> للحصول على
+				<span class="purple-color">المخرجات النهائية</span>
+				لآلية الانتباه الذاتي. يمتلك GPT-2 <code>12</code> رأس انتباه ذاتي، يلتقط كل منها علاقات
+				مختلفة بين الرموز. تُدمَج مخرجات هذه الرؤوس وتُمرَّر عبر إسقاط خطي.
 			</p>
 		</div>
 	</div>
 
 	<div class="article-section" id="article-activation" data-click="article-mlp">
-		<h3>MLP: Multi-Layer Perceptron</h3>
+		<h3>الشبكة العصبية متعددة الطبقات (MLP: Multi-Layer Perceptron)</h3>
 
 		<div class="figure">
 			<img src="./article_assets/mlp.png" width="70%" align="middle" />
 		</div>
 		<div class="figure-caption">
-			Figure <span class="attention">4</span>. Using MLP layer to project the self-attention
-			representations into higher dimensions to enhance the model's representational capacity.
+			الشكل <span class="attention">4</span>. استخدام طبقة MLP لإسقاط تمثيلات الانتباه الذاتي في
+			أبعاد أعلى لتعزيز القدرة التمثيلية للنموذج. (الشكل باللغة الإنجليزية.)
 		</div>
 
 		<p>
-			After the multiple heads of self-attention capture the diverse relationships between the input
-			tokens, the concatenated outputs are passed through the Multilayer Perceptron (MLP) layer to
-			enhance the model's representational capacity. The MLP block consists of two linear
-			transformations with a GELU activation function in between. The first linear transformation
-			increases the dimensionality of the input four-fold from <code>768</code>
-			to <code>3072</code>. The second linear transformation reduces the dimensionality back to the
-			original size of <code>768</code>, ensuring that the subsequent layers receive inputs of
-			consistent dimensions. Unlike the self-attention mechanism, the MLP processes tokens
-			independently and simply map them from one representation to another.
+			بعد أن تلتقط رؤوس الانتباه الذاتي المتعددة العلاقات المتنوعة بين رموز الإدخال، تُمرَّر
+			المخرجات المدموجة عبر طبقة الشبكة العصبية متعددة الطبقات (MLP) لتعزيز القدرة التمثيلية
+			للنموذج. تتكون كتلة MLP من تحويلين خطيين بينهما دالة تفعيل GELU. يزيد التحويل الخطي الأول
+			أبعاد الإدخال أربعة أضعاف من <code>768</code>
+			إلى <code>3072</code>. ويعيد التحويل الخطي الثاني الأبعاد إلى حجمها الأصلي
+			<code>768</code>، مما يضمن أن تتلقى الطبقات اللاحقة مدخلات ذات أبعاد متسقة. وعلى خلاف آلية
+			الانتباه الذاتي، تعالج MLP الرموز على نحو مستقل، وتكتفي بنقلها من تمثيل إلى آخر.
 		</p>
 	</div>
 
 	<div class="article-section" id="article-prob" data-click="article-prob">
-		<h2>Output Probabilities</h2>
+		<h2>احتمالات المخرجات (Output Probabilities)</h2>
 		<p>
-			After the input has been processed through all Transformer blocks, the output is passed
-			through the final linear layer to prepare it for token prediction. This layer projects the
-			final representations into a <code>50,257</code>
-			dimensional space, where every token in the vocabulary has a corresponding value called
-			<code>logit</code>. Any token can be the next word, so this process allows us to simply rank
-			these tokens by their likelihood of being that next word. We then apply the softmax function
-			to convert the logits into a probability distribution that sums to one. This will allow us to
-			sample the next token based on its likelihood.
+			بعد معالجة الإدخال عبر جميع كتل المحوِّل، تُمرَّر المخرجات عبر الطبقة الخطية النهائية
+			لتجهيزها للتنبؤ بالرمز. تُسقِط هذه الطبقة التمثيلات النهائية في فضاء ذي
+			<code>50,257</code>
+			بُعدًا، حيث يكون لكل رمز في المفردات قيمة مقابلة تسمى
+			<code>logit</code>. يمكن لأي رمز أن يكون الكلمة التالية، لذا تتيح لنا هذه العملية ببساطة
+			ترتيب هذه الرموز حسب احتمال كونها تلك الكلمة التالية. ثم نطبّق دالة softmax لتحويل اللوجيتات
+			إلى توزيع احتمالي مجموعه واحد. وهذا يتيح لنا أخذ عينة للرمز التالي بناءً على احتماله.
 		</p>
 
 		<div class="figure py-5">
 			<img src="./article_assets/softmax.png" width="70%" />
 		</div>
 		<div class="figure-caption">
-			Figure <span class="attention">5</span>. Each token in the vocabulary is assigned a
-			probability based on the model's output logits. These probabilities determine the likelihood
-			of each token being the next word in the sequence.
+			الشكل <span class="attention">5</span>. يُسنَد لكل رمز في المفردات احتمال بناءً على لوجيتات
+			مخرجات النموذج. تحدد هذه الاحتمالات مدى ترجيح كون كل رمز الكلمة التالية في التسلسل. (الشكل
+			باللغة الإنجليزية.)
 		</div>
 
 		<p id="article-temperature" data-click="article-temperature">
-			The final step is to generate the next token by sampling from this distribution The <code
-				>temperature</code
-			>
-			hyperparameter plays a critical role in this process. Mathematically speaking, it is a very simple
-			operation: model output logits are simply divided by the
+			الخطوة الأخيرة هي توليد الرمز التالي بأخذ عينة من هذا التوزيع. يؤدي المُعامِل الفائق
+			<code>temperature</code>
+			(درجة الحرارة) دورًا حاسمًا في هذه العملية. ومن الناحية الرياضية، إنها عملية بسيطة جدًا: تُقسم
+			لوجيتات مخرجات النموذج ببساطة على قيمة
 			<code>temperature</code>:
 		</p>
 
 		<ul>
 			<li>
-				<code>temperature = 1</code>: Dividing logits by one has no effect on the softmax outputs.
+				<code>temperature = 1</code>: قسمة اللوجيتات على واحد لا تؤثر في مخرجات softmax.
 			</li>
 			<li>
-				<code>temperature &lt; 1</code>: Lower temperature makes the model more confident and
-				deterministic by sharpening the probability distribution, leading to more predictable
-				outputs.
+				<code>temperature &lt; 1</code>: درجة الحرارة المنخفضة تجعل النموذج أكثر ثقة وحسمًا عبر
+				شحذ التوزيع الاحتمالي، مما يؤدي إلى مخرجات أكثر قابلية للتنبؤ.
 			</li>
 			<li>
-				<code>temperature &gt; 1</code>: Higher temperature creates a softer probability
-				distribution, allowing for more randomness in the generated text – what some refer to as
-				model <em>“creativity”</em>.
+				<code>temperature &gt; 1</code>: درجة الحرارة المرتفعة تنتج توزيعًا احتماليًا أكثر
+				ليونة، مما يسمح بمزيد من العشوائية في النص المولَّد — وهو ما يسميه البعض
+				<em>«إبداع»</em> النموذج.
 			</li>
 		</ul>
 
 		<p id="article-sampling" data-click="article-sampling">
-			In addition, the sampling process can be further refined using <code>top-k</code>
-			and
-			<code>top-p</code> parameters:
+			إضافة إلى ذلك، يمكن ضبط عملية أخذ العينات بدقة أكبر باستخدام مُعامِلَي <code>top-k</code>
+			و<code>top-p</code>:
 		</p>
 		<ul>
 			<li>
-				<code>top-k sampling</code>: Limits the candidate tokens to the top k tokens with the
-				highest probabilities, filtering out less likely options.
+				<code>top-k sampling</code>: يحصر الرموز المرشحة في أعلى k رمزًا من حيث الاحتمال،
+				مستبعدًا الخيارات الأقل ترجيحًا.
 			</li>
 			<li>
-				<code>top-p sampling</code>: Considers the smallest set of tokens whose cumulative
-				probability exceeds a threshold p, ensuring that only the most likely tokens contribute
-				while still allowing for diversity.
+				<code>top-p sampling</code>: يأخذ في الاعتبار أصغر مجموعة من الرموز يتجاوز مجموع
+				احتمالاتها التراكمي العتبة p، مما يضمن إسهام الرموز الأكثر ترجيحًا فقط مع السماح
+				بالتنوع في الوقت نفسه.
 			</li>
 		</ul>
 		<p>
-			By tuning <code>temperature</code>, <code>top-k</code>, and <code>top-p</code>, you can
-			balance between deterministic and diverse outputs, tailoring the model's behavior to your
-			specific needs.
+			بضبط <code>temperature</code> و<code>top-k</code> و<code>top-p</code>، يمكنك الموازنة بين
+			مخرجات حاسمة وأخرى متنوعة، بما يلائم سلوك النموذج مع احتياجاتك الخاصة.
 		</p>
 	</div>
 
 	<div class="article-section" data-click="article-advanced-features">
-		<h2>Advanced Architectural Features</h2>
+		<h2>سمات معمارية متقدمة (Advanced Architectural Features)</h2>
 
 		<p>
-			There are several advanced architectural features that enhance the performance of Transformer
-			models. While important for the model's overall performance, they are not as important for
-			understanding the core concepts of the architecture. Layer Normalization, Dropout, and
-			Residual Connections are crucial components in Transformer models, particularly during the
-			training phase. Layer Normalization stabilizes training and helps the model converge faster.
-			Dropout prevents overfitting by randomly deactivating neurons. Residual Connections allows
-			gradients to flow directly through the network and helps to prevent the vanishing gradient
-			problem.
+			هناك عدة سمات معمارية متقدمة تعزز أداء نماذج المحوِّلات. ورغم أهميتها للأداء العام للنموذج،
+			فإنها ليست بالأهمية نفسها لفهم المفاهيم الجوهرية للبنية. تُعد تسوية الطبقة (Layer
+			Normalization) والإسقاط (Dropout) والوصلات المتبقية (Residual Connections) مكونات حاسمة في
+			نماذج المحوِّلات، لا سيما خلال مرحلة التدريب. تعمل تسوية الطبقة على استقرار التدريب وتساعد
+			النموذج على التقارب أسرع. ويمنع الإسقاط فرط التخصيص عبر تعطيل الخلايا العصبية عشوائيًا. أما
+			الوصلات المتبقية فتتيح تدفق التدرجات مباشرة عبر الشبكة وتساعد على تفادي مشكلة تلاشي التدرج.
 		</p>
 		<div class="article-subsection" id="article-ln">
-			<h3>Layer Normalization</h3>
+			<h3>تسوية الطبقة (Layer Normalization)</h3>
 
 			<p>
-				Layer Normalization helps to stabilize the training process and improves convergence. It
-				works by normalizing the inputs across the features, ensuring that the mean and variance of
-				the activations are consistent. This normalization helps mitigate issues related to internal
-				covariate shift, allowing the model to learn more effectively and reducing the sensitivity
-				to the initial weights. Layer Normalization is applied twice in each Transformer block, once
-				before the self-attention mechanism and once before the MLP layer.
+				تساعد تسوية الطبقة على استقرار عملية التدريب وتحسّن التقارب. تعمل عبر تسوية المدخلات على
+				امتداد السمات، بما يضمن اتساق متوسط التفعيلات وتباينها. تساعد هذه التسوية على التخفيف من
+				المشكلات المرتبطة بالانزياح المتغاير الداخلي، مما يتيح للنموذج التعلم بفعالية أكبر ويقلل
+				الحساسية للأوزان الأولية. تُطبَّق تسوية الطبقة مرتين في كل كتلة محوِّل: مرة قبل آلية
+				الانتباه الذاتي ومرة قبل طبقة MLP.
 			</p>
 		</div>
 		<div class="article-subsection" id="article-dropout">
-			<h3>Dropout</h3>
+			<h3>الإسقاط (Dropout)</h3>
 
 			<p>
-				Dropout is a regularization technique used to prevent overfitting in neural networks by
-				randomly setting a fraction of model weights to zero during training. This encourages the
-				model to learn more robust features and reduces dependency on specific neurons, helping the
-				network generalize better to new, unseen data. During model inference, dropout is
-				deactivated. This essentially means that we are using an ensemble of the trained
-				subnetworks, which leads to a better model performance.
+				الإسقاط تقنية تنظيم تُستخدم لمنع فرط التخصيص في الشبكات العصبية عبر تعيين جزء من أوزان
+				النموذج عشوائيًا إلى الصفر أثناء التدريب. يشجع هذا النموذج على تعلم سمات أكثر متانة ويقلل
+				الاعتماد على خلايا عصبية بعينها، مما يساعد الشبكة على التعميم بشكل أفضل على بيانات جديدة
+				لم ترها من قبل. يُعطَّل الإسقاط أثناء استدلال النموذج، وهذا يعني في جوهره أننا نستخدم
+				مجموعة من الشبكات الفرعية المدرَّبة، مما يؤدي إلى أداء أفضل للنموذج.
 			</p>
 		</div>
 		<div class="article-subsection" id="article-residual">
-			<h3>Residual Connections</h3>
+			<h3>الوصلات المتبقية (Residual Connections)</h3>
 
 			<p>
-				Residual connections were first introduced in the ResNet model in 2015. This architectural
-				innovation revolutionized deep learning by enabling the training of very deep neural
-				networks. Essentially, residual connections are shortcuts that bypass one or more layers,
-				adding the input of a layer to its output. This helps mitigate the vanishing gradient
-				problem, making it easier to train deep networks with multiple Transformer blocks stacked on
-				top of each other. In GPT-2, residual connections are used twice within each Transformer
-				block: once before the MLP and once after, ensuring that gradients flow more easily, and
-				earlier layers receive sufficient updates during backpropagation.
+				قُدِّمت الوصلات المتبقية لأول مرة في نموذج ResNet عام 2015. أحدث هذا الابتكار المعماري
+				ثورة في التعلم العميق بتمكينه من تدريب شبكات عصبية عميقة جدًا. الوصلات المتبقية في جوهرها
+				اختصارات تتجاوز طبقة أو أكثر، بإضافة مُدخل الطبقة إلى مُخرجها. يساعد هذا على التخفيف من
+				مشكلة تلاشي التدرج، مما يسهّل تدريب الشبكات العميقة التي تتكدس فيها عدة كتل محوِّل فوق
+				بعضها. في GPT-2، تُستخدم الوصلات المتبقية مرتين داخل كل كتلة محوِّل: مرة قبل MLP ومرة
+				بعدها، بما يضمن تدفق التدرجات بسهولة أكبر وحصول الطبقات الأولى على تحديثات كافية أثناء
+				الانتشار الخلفي.
 			</p>
 		</div>
 	</div>
 
 	<div class="article-section" data-click="article-interactive-features">
-		<h1>Interactive Features</h1>
+		<h1>الميزات التفاعلية (Interactive Features)</h1>
 		<p>
-			Transformer Explainer is built to be interactive and allows you to explore the inner workings
-			of the Transformer. Here are some of the interactive features you can play with:
+			صُمم «شارح المحوِّلات» ليكون تفاعليًا ويتيح لك استكشاف الآليات الداخلية للمحوِّل. إليك بعض
+			الميزات التفاعلية التي يمكنك تجربتها:
 		</p>
 
 		<ul>
 			<li>
-				<strong>Input your own text sequence</strong> to see how the model processes it and predicts
-				the next word. Explore attention weights, intermediate computations, and see how the final output
-				probabilities are calculated.
+				<strong>أدخِل نصك الخاص</strong> لترى كيف يعالجه النموذج ويتنبأ بالكلمة التالية. استكشف
+				أوزان الانتباه والحسابات الوسيطة، وشاهد كيف تُحسب احتمالات المخرجات النهائية. (يجب أن يكون
+				النص المُدخل باللغة الإنجليزية، لأن GPT-2 نموذج مدرَّب على اللغة الإنجليزية.)
 			</li>
 			<li>
-				<strong>Use temperature slider</strong> to control the randomness of the model’s predictions.
-				Explore how you can make the model output more deterministic or more creative by changing the
-				temperature value.
+				<strong>استخدم شريط درجة الحرارة (Temperature)</strong> للتحكم في عشوائية تنبؤات النموذج.
+				استكشف كيف يمكنك جعل مخرجات النموذج أكثر حسمًا أو أكثر إبداعًا بتغيير قيمة درجة الحرارة.
 			</li>
 			<li>
-				<strong>Select top-k and top-p sampling methods</strong> to adjust sampling behavior during inference.
-				Experiment with different values and see how the probability distribution changes and influences
-				the model's predictions.
+				<strong>اختر طريقتَي أخذ العينات top-k وtop-p</strong> لضبط سلوك أخذ العينات أثناء
+				الاستدلال. جرّب قيمًا مختلفة وشاهد كيف يتغير التوزيع الاحتمالي ويؤثر في تنبؤات النموذج.
 			</li>
 			<li>
-				<strong>Interact with attention maps</strong> to see how the model focuses on different tokens
-				in the input sequence. Hover over tokens to highlight their attention weights and explore how
-				the model captures context and relationships between words.
+				<strong>تفاعل مع خرائط الانتباه</strong> لترى كيف يركّز النموذج على الرموز المختلفة في
+				تسلسل الإدخال. مرِّر المؤشر فوق الرموز لإبراز أوزان انتباهها، واستكشف كيف يلتقط النموذج
+				السياق والعلاقات بين الكلمات.
 			</li>
 		</ul>
 	</div>
 
 	<div class="article-section" data-click="article-video">
-		<h2>Video Tutorial</h2>
+		<h2>الشرح المرئي (Video Tutorial)</h2>
 		<div class="video-container">
 			<iframe
 				src="https://www.youtube.com/embed/ECR4oAwocjs"
@@ -521,38 +498,35 @@
 	</div>
 
 	<div class="article-section" data-click="article-implementation">
-		<h2>How is Transformer Explainer Implemented?</h2>
+		<h2>كيف نُفِّذ «شارح المحوِّلات»؟</h2>
 		<p>
-			Transformer Explainer features a live GPT-2 (small) model running directly in the browser.
-			This model is derived from the PyTorch implementation of GPT by Andrej Karpathy's
-			<a href="https://github.com/karpathy/nanoGPT" title="Github" target="_blank"
-				>nanoGPT project</a
-			>
-			and has been converted to
+			يعرض «شارح المحوِّلات» نموذج GPT-2 (الصغير) يعمل مباشرة في المتصفح. هذا النموذج مشتق من
+			تنفيذ PyTorch لنموذج GPT في مشروع
+			<a href="https://github.com/karpathy/nanoGPT" title="Github" target="_blank">nanoGPT</a>
+			لأندريه كارباثي (Andrej Karpathy)، وجرى تحويله إلى
 			<a href="https://onnxruntime.ai/" title="ONNX" target="_blank">ONNX Runtime</a>
-			for seamless in-browser execution. The interface is built using JavaScript, with
+			ليعمل بسلاسة داخل المتصفح. بُنيت الواجهة باستخدام JavaScript، مع
 			<a href="https://kit.svelte.dev/" title="Svelte" target="_blank">Svelte</a>
-			as a front-end framework and
-			<a href="https://d3js.org/" title="D3" target="_blank">D3.js</a>
-			for creating dynamic visualizations. Numerical values are updated live following the user input.
+			إطارًا للواجهة الأمامية و<a href="https://d3js.org/" title="D3" target="_blank">D3.js</a>
+			لإنشاء التصورات المرئية الديناميكية. تُحدَّث القيم العددية مباشرة تبعًا لإدخال المستخدم.
 		</p>
 	</div>
 
 	<div class="article-section" data-click="article-credit">
-		<h2>Who developed the Transformer Explainer?</h2>
+		<h2>من طوّر «شارح المحوِّلات»؟</h2>
 		<p>
-			Transformer Explainer was created by
+			أنشأ «شارح المحوِّلات» كلٌّ من
 
-			<a href="https://aereeeee.github.io/" target="_blank">Aeree Cho</a>,
-			<a href="https://www.linkedin.com/in/chaeyeonggracekim/" target="_blank">Grace C. Kim</a>,
-			<a href="https://alexkarpekov.com/" target="_blank">Alexander Karpekov</a>,
-			<a href="https://alechelbling.com/" target="_blank">Alec Helbling</a>,
-			<a href="https://zijie.wang/" target="_blank">Jay Wang</a>,
-			<a href="https://seongmin.xyz/" target="_blank">Seongmin Lee</a>,
-			<a href="https://bhoov.com/" target="_blank">Benjamin Hoover</a>, and
-			<a href="https://poloclub.github.io/polochau/" target="_blank">Polo Chau</a>
+			<a href="https://aereeeee.github.io/" target="_blank">Aeree Cho</a>
+			و<a href="https://www.linkedin.com/in/chaeyeonggracekim/" target="_blank">Grace C. Kim</a>
+			و<a href="https://alexkarpekov.com/" target="_blank">Alexander Karpekov</a>
+			و<a href="https://alechelbling.com/" target="_blank">Alec Helbling</a>
+			و<a href="https://zijie.wang/" target="_blank">Jay Wang</a>
+			و<a href="https://seongmin.xyz/" target="_blank">Seongmin Lee</a>
+			و<a href="https://bhoov.com/" target="_blank">Benjamin Hoover</a>
+			و<a href="https://poloclub.github.io/polochau/" target="_blank">Polo Chau</a>
 
-			at the Georgia Institute of Technology.
+			في معهد جورجيا للتقنية (Georgia Institute of Technology).
 		</p>
 	</div>
 </div>
@@ -623,6 +597,12 @@
 		max-width: 78ch;
 	}
 
+	#description :global(.katex),
+	#description :global(.katex-display) {
+		direction: ltr;
+		unicode-bidi: isolate;
+	}
+
 	#description h1 {
 		color: theme('colors.purple.700');
 		font-size: 2.2rem;
@@ -668,7 +648,7 @@
 	}
 
 	#description ol {
-		margin-left: 3rem;
+		margin-inline-start: 3rem;
 		list-style-type: decimal;
 	}
 
@@ -700,7 +680,7 @@
 
 	#description ul {
 		list-style-type: disc;
-		margin-left: 2.5rem;
+		margin-inline-start: 2.5rem;
 		margin-bottom: 1rem;
 	}
 

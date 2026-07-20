@@ -141,13 +141,13 @@
 		on:mouseleave={handleMouseLeave}
 		data-click="embedding-step-title"
 	>
-		<div class="flex items-center gap-1">Embedding <ZoomInOutline></ZoomInOutline></div>
+		<div class="flex items-center gap-1">التضمين (Embedding) <ZoomInOutline></ZoomInOutline></div>
 	</div>
 	<div class="content relative">
 		<div class="token-column resizable resize-watch flex">
 			<!-- token -->
 			<div class="column token-string relative">
-				{#if isEmbeddingExpanded}<div class="subtitle embedding-detail">Token</div>{/if}
+				{#if isEmbeddingExpanded}<div class="subtitle embedding-detail">الرمز (Token)</div>{/if}
 				{#each $tokens as token, index}
 					<div class="cell" class:last={index === $tokens.length - 1}>
 						<span class="label">{token}</span>
@@ -165,10 +165,10 @@
 				<!-- token id and embedding -->
 				<div class="column token-embedding embedding-detail">
 					<div class="subtitle flex items-center gap-1">
-						<span>Token<br />Embedding</span><HelpPopover
+						<span>تضمين الرمز<br />(Token Embedding)</span><HelpPopover
 							id="token-embedding"
 							goTo="article-token-embedding"
-							>{`Converts tokens into numerical \nrepresentations using embeddings \nderived from predefined vocabulary, \ncapturing their semantic meaning.`}</HelpPopover
+							>{`يحوِّل الرموز إلى تمثيلات عددية \nباستخدام تضمينات مشتقة من \nمفردات محددة مسبقًا، بما \nيلتقط معناها الدلالي.`}</HelpPopover
 						>
 					</div>
 					{#each $tokens as token, index}
@@ -210,10 +210,10 @@
 				</div>
 				<div class="column embedding-detail position-embedding">
 					<div class="subtitle flex gap-1">
-						<span>Positional<br />Encoding</span><HelpPopover
+						<span>الترميز الموضعي<br />(Positional Encoding)</span><HelpPopover
 							id="position-embedding"
 							goTo="article-positional-embedding"
-							>{`Converts token positions into \nnumerical representations that \ncapture their order in the sequence.`}</HelpPopover
+							>{`يحوِّل مواضع الرموز إلى \nتمثيلات عددية تلتقط \nترتيبها في التسلسل.`}</HelpPopover
 						>
 					</div>
 					{#each $tokens as token, index}

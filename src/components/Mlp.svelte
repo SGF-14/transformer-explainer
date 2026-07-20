@@ -36,7 +36,9 @@
 		role="group"
 		data-click="mlp-step-title"
 	>
-		<div class="w-max" on:click={(e) => onClickReadMore(e, 'article-activation')}>MLP</div>
+		<div class="w-max" on:click={(e) => onClickReadMore(e, 'article-activation')}>
+			الشبكة متعددة الطبقات (MLP)
+		</div>
 	</div>
 	<div class="content relative">
 		<div class="bounding mlp-bounding" class:active={isHovered}></div>

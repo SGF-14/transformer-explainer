@@ -23,9 +23,9 @@
 	>
 		<div class="sampling-type">
 			<div class="title flex items-center gap-[2px]">
-				<div>Sampling</div>
+				<div>أخذ العينات</div>
 				<HelpPopover id="sampling-help" placement="right" goTo="article-sampling">
-					{`Changes how next \ntoken is selected from \nprobability distribution.`}
+					{`تغيّر طريقة اختيار الرمز \nالتالي من التوزيع \nالاحتمالي.`}
 				</HelpPopover>
 			</div>
 			<div class="sampling-type-input flex">

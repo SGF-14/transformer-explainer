@@ -27,9 +27,9 @@
 		valueText={temperatureTemp}
 	>
 		<div class="temperature-text flex items-center gap-[2px]">
-			<div>Temperature</div>
+			<div>درجة الحرارة</div>
 			<HelpPopover id="temperature-help" placement="right" goTo="article-temperature">
-				{`Changes output \nprobability distribution \nand randomness \nof next token.`}
+				{`تغيّر التوزيع الاحتمالي \nللمخرجات ومقدار العشوائية \nفي الرمز التالي.`}
 			</HelpPopover>
 		</div>
 	</Slider>

@@ -26,10 +26,9 @@
 				class="guide flex flex-col items-start gap-1"
 				class:active={$blockIdx !== $modelMeta.layer_num - 1}
 			>
-				<div class="text" class:highlight={$isBoundingBoxActive}>
-					{$modelMeta.layer_num - $blockIdx - 1} more identical<br /><span class="strong"
-						>Transformer<br />Blocks</span
-					>.
+				<div class="text" dir="rtl" class:highlight={$isBoundingBoxActive}>
+					<span dir="rtl">{$modelMeta.layer_num - $blockIdx - 1} كتلة إضافية متطابقة من</span><br
+					/><span class="strong">كتل المحوِّل<br />(Transformer Blocks)</span>
 				</div>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"

@@ -175,7 +175,7 @@
 	style={`top:${boundingPos.top - rootRem * 3.5}px;`}
 	class:active={$isBoundingBoxActive}
 >
-	<span class="title-text">Transformer Block {$blockIdxTemp + 1}</span>
+	<span class="title-text" dir="rtl">كتلة المحوِّل {$blockIdxTemp + 1}</span>
 	<button
 		data-click="transformer-block-prev-btn"
 		on:click={onClickPrev}

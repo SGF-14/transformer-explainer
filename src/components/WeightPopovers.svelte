@@ -125,7 +125,7 @@
 		style="left: {x}px; top: {y}px;"
 		in:fade={{ duration: 100 }}
 	>
-		{$tooltip}
+		<span dir="rtl">{$tooltip}</span>
 		<ArrowUpRightDownLeftOutline size="sm" />
 	</div>
 {/if}
