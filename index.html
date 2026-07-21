@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ar">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Noto+Sans+Arabic:wght@400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>شارح المحوِّلات (Transformer Explainer): شرح مرئي لنموذج المحوِّل في نماذج اللغة الكبيرة</title>
+
+		<!-- Primary Meta Tags -->
+		<meta name="title" content="شارح المحوِّلات (Transformer Explainer): شرح مرئي لنموذج المحوِّل في نماذج اللغة الكبيرة" />
+		<meta
+			name="description"
+			content="أداة تفاعلية مرئية توضح كيف تعمل نماذج المحوِّلات (Transformers) في نماذج اللغة الكبيرة (LLM) مثل GPT."
+		/>
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://poloclub.github.io/transformer-explainer/" />
+		<meta
+			property="og:title"
+			content="شارح المحوِّلات (Transformer Explainer): شرح مرئي لنموذج المحوِّل في نماذج اللغة الكبيرة"
+		/>
+		<meta
+			property="og:description"
+			content="أداة تفاعلية مرئية توضح كيف تعمل نماذج المحوِّلات (Transformers) في نماذج اللغة الكبيرة (LLM) مثل GPT."
+		/>
+		<meta
+			property="og:image"
+			content="https://poloclub.github.io/transformer-explainer/preview/summary.png"
+		/>
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://poloclub.github.io/transformer-explainer/" />
+		<meta
+			property="twitter:title"
+			content="شارح المحوِّلات (Transformer Explainer): شرح مرئي لنموذج المحوِّل في نماذج اللغة الكبيرة"
+		/>
+		<meta
+			property="twitter:description"
+			content="أداة تفاعلية مرئية توضح كيف تعمل نماذج المحوِّلات (Transformers) في نماذج اللغة الكبيرة (LLM) مثل GPT."
+		/>
+		<meta
+			property="twitter:image"
+			content="https://poloclub.github.io/transformer-explainer/preview/summary.png"
+		/>
+
+		
+		<link href="./_app/immutable/assets/Katex.kfaUgShG.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/0.BxraKamQ.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/2.CWAapXZm.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.EFyQ5MlG.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/6Hp2iOnQ.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/BPx___BZ.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/DWj59d3y.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/BxewVYQq.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.B5fDJ1hL.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/BKfuYZFG.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.BWtDgPSp.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/HBzRg9Z7.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.BbBAP6ZN.js"><!-- HEAD_svelte-1cz9sdl_START --><!-- HEAD_svelte-1cz9sdl_END --><!-- HEAD_svelte-r30au3_START --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous"><!-- HEAD_svelte-r30au3_END -->
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">   <div id="app" style="--min-screen-width:1300px;--min-column-width:22px;--predicted-color:#7E3AF2;" class="svelte-j1uqdc"><div id="landing" class="svelte-j1uqdc"><header style="transform: translateX(0px);" class="svelte-j1uqdc"><div class="top-bar flex w-full items-center gap-4 px-10 py-2 pb-3 svelte-187hotj"><div class="logo text-bold text-gray-700 svelte-187hotj" data-click="logo" data-svelte-h="svelte-vu6ymg">T<span class="small svelte-187hotj">RANSFORMER</span> E<span class="small svelte-187hotj">XPLAINER</span> <span class="logo-ar svelte-187hotj">شارح المحوِّلات</span></div> <div class="inputs flex grow items-center"><div class="input-wrapper w-full svelte-187hotj"><div class="input-area svelte-dpzsyo" data-click="input-area"><form class="input-form svelte-dpzsyo" data-click="input-form"><div class="inline-flex rounded-lg shadow-sm input-btn-group" role="group"><button data-click="dropdown-btn" type="button"  class="select-button inline-flex shrink-0 items-center justify-center border border-s-0 border-gray-200 bg-white px-3 py-2 text-center text-xs font-medium text-gray-900 first:rounded-s-lg first:border-s last:rounded-e-lg svelte-dpzsyo">أمثلة<svg xmlns="http://www.w3.org/2000/svg" fill="none" color="currentColor" class="shrink-0 pointer-events-none h-4 w-4 text-gray-500" role="img" aria-label="chevron down outline" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 10 4 4 4-4"></path></svg> </button> <div></div>    <div data-click="text-input" class="input-container svelte-dpzsyo disabled" role="none"><div class="editable w-full svelte-dpzsyo"><div contenteditable="false" class="text-box svelte-dpzsyo" placeholder="جرِّب نصًا من عندك (بالإنجليزية)" role="input">Data visualization empowers users to</div> <div class="predicted svelte-dpzsyo" role="none"><span class="svelte-dpzsyo"></span></div></div>  </div></div>  <button data-click="generate-btn" disabled class="generate-button rounded-lg text-center text-sm shadow-sm disabled svelte-dpzsyo" type="submit">توليد</button></form> <div class="parameters svelte-dpzsyo" data-click="input-parameters"><div class="temperature-input svelte-19xdqw3" data-click="temperature-input"><div class="slider-input shrink-0 text-gray-900 temperature-slider svelte-fbol6i"><div class="slider-head flex w-full shrink-0 items-center justify-center"><div class="temperature-text flex items-center gap-[2px] svelte-19xdqw3"><div data-svelte-h="svelte-1f3moz1">درجة الحرارة</div> <div id="temperature-help" class="help" data-click="help-icon"><svg class="h-4 w-4 text-gray-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor"><path d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"></path></svg></div> <div></div>   </div></div> <div class="slider-container svelte-fbol6i"><input  class="slider svelte-fbol6i" type="range" min="0" max="17" step="1" value="6"> <div class="value svelte-fbol6i"><p>0.8</p></div></div> </div> </div> <div class="sampling-input svelte-b8b9it" data-click="input-sampling"><div class="slider-input shrink-0 text-gray-900 sampling-slider svelte-fbol6i"><div class="slider-head flex w-full shrink-0 items-center justify-center"><div class="sampling-type svelte-b8b9it"><div class="title flex items-center gap-[2px] svelte-b8b9it"><div data-svelte-h="svelte-1ade1me">أخذ العينات</div> <div id="sampling-help" class="help" data-click="help-icon"><svg class="h-4 w-4 text-gray-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor"><path d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"></path></svg></div> <div></div>   </div> <div class="sampling-type-input flex svelte-b8b9it"> <label class="text-sm rtl:text-right font-medium text-gray-900 dark:text-gray-300 inline-flex items-center type-btn"><input type="radio" value="top-k" class="w-4 h-4 bg-gray-100 border-gray-300 dark:ring-offset-gray-800 focus:ring-2 me-2 dark:bg-gray-700 dark:border-gray-600 text-purple-600 focus:ring-purple-500 dark:focus:ring-purple-600" checked> Top-k</label>    <label class="text-sm rtl:text-right font-medium text-gray-900 dark:text-gray-300 inline-flex items-center type-btn"><input type="radio" value="top-p" class="w-4 h-4 bg-gray-100 border-gray-300 dark:ring-offset-gray-800 focus:ring-2 me-2 dark:bg-gray-700 dark:border-gray-600 text-purple-600 focus:ring-purple-500 dark:focus:ring-purple-600"> Top-p</label>  </div></div></div> <div class="slider-container svelte-fbol6i"><input  class="slider svelte-fbol6i" type="range" min="1" max="50" step="1" value="5"> <div class="value svelte-fbol6i"><p>k=5</p></div></div> </div> </div></div> </div></div></div> <div class="icons flex items-center gap-3 svelte-187hotj" data-svelte-h="svelte-g137ca"> <a href="https://arxiv.org/abs/2408.04619" target="_blank" data-click="pdf-btn"><svg class="h-6 w-6 text-gray-800 dark:text-white svelte-187hotj" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2 2 2 0 0 0 2 2h12a2 2 0 0 0 2-2 2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2V4a2 2 0 0 0-2-2h-7Zm-6 9a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h.5a2.5 2.5 0 0 0 0-5H5Zm1.5 3H6v-1h.5a.5.5 0 0 1 0 1Zm4.5-3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h1.376A2.626 2.626 0 0 0 15 15.375v-1.75A2.626 2.626 0 0 0 12.375 11H11Zm1 5v-3h.375a.626.626 0 0 1 .625.626v1.748a.625.625 0 0 1-.626.626H12Zm5-5a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h1a1 1 0 1 0 0-2h-1v-1h1a1 1 0 1 0 0-2h-2Z" clip-rule="evenodd"></path></svg></a>  <a href="https://www.youtube.com/watch?v=ECR4oAwocjs" target="_blank" data-click="ytb-btn"><svg class="h-6 w-6 text-gray-800 dark:text-white svelte-187hotj" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M21.7 8.037a4.26 4.26 0 0 0-.789-1.964 2.84 2.84 0 0 0-1.984-.839c-2.767-.2-6.926-.2-6.926-.2s-4.157 0-6.928.2a2.836 2.836 0 0 0-1.983.839 4.225 4.225 0 0 0-.79 1.965 30.146 30.146 0 0 0-.2 3.206v1.5a30.12 30.12 0 0 0 .2 3.206c.094.712.364 1.39.784 1.972.604.536 1.38.837 2.187.848 1.583.151 6.731.2 6.731.2s4.161 0 6.928-.2a2.844 2.844 0 0 0 1.985-.84 4.27 4.27 0 0 0 .787-1.965 30.12 30.12 0 0 0 .2-3.206v-1.516a30.672 30.672 0 0 0-.202-3.206Zm-11.692 6.554v-5.62l5.4 2.819-5.4 2.801Z" clip-rule="evenodd"></path></svg></a>  <a href="https://github.com/poloclub/transformer-explainer" target="_blank" data-click="github_btn"><svg class="h-6 w-6 text-gray-800 dark:text-white svelte-187hotj" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z" clip-rule="evenodd"></path></svg></a></div> </div></header> <main id="main" style="padding-top:0px" class="svelte-j1uqdc"><div class="flex h-full w-full items-center justify-center"><svg role="status" class="inline -mt-px animate-spin dark:text-gray-600 w-8 h-8 text-gray-300 fill-purple-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"></path><path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"></path></svg> </div></main></div> <div class="article h-auto w-full svelte-j1uqdc"><div id="description" dir="rtl" class="svelte-shfncm"><div class="article-section svelte-shfncm" data-click="article-intro" data-svelte-h="svelte-15orvwt"><h1 class="svelte-shfncm">ما هو المحوِّل (Transformer)؟</h1> <p class="svelte-shfncm">المحوِّل (Transformer) هو بنية شبكة عصبية غيّرت جذريًا نهج الذكاء الاصطناعي. قُدِّم المحوِّل
+			لأول مرة في الورقة البحثية الرائدة
+			<a href="https://dl.acm.org/doi/10.5555/3295222.3295349" title="ACM Digital Library" target="_blank" class="svelte-shfncm">&quot;Attention is All You Need&quot;</a>
+			عام 2017، وأصبح منذ ذلك الحين البنية المفضّلة لنماذج التعلم العميق، حيث يشغّل نماذج توليد
+			النصوص مثل <strong>GPT</strong> من OpenAI و<strong>Llama</strong> من Meta و<strong>Gemini</strong> من Google. وإلى جانب النصوص، يُستخدم المحوِّل أيضًا في
+			<a href="https://huggingface.co/learn/audio-course/en/chapter3/introduction" title="Hugging Face" target="_blank" class="svelte-shfncm">توليد الصوت</a>
+			و<a href="https://huggingface.co/learn/computer-vision-course/unit3/vision-transformers/vision-transformers-for-image-classification" title="Hugging Face" target="_blank" class="svelte-shfncm">التعرف على الصور</a>
+			و<a href="https://elifesciences.org/articles/82819" title="eLife" class="svelte-shfncm">التنبؤ ببنية البروتينات</a>
+			وحتى في
+			<a href="https://www.deeplearning.ai/the-batch/reinforcement-learning-plus-transformers-equals-efficiency/" title="Deep Learning AI" target="_blank" class="svelte-shfncm">ممارسة الألعاب</a>، مما يدل على تعدد استخداماته في مجالات عديدة.</p> <p class="svelte-shfncm">في جوهرها، تعمل نماذج المحوِّلات المولِّدة للنص على مبدأ <strong>التنبؤ بالكلمة التالية (next-word prediction)</strong>: بالنظر إلى النص الذي يُدخله المستخدم، ما <em>الكلمة التالية الأكثر احتمالًا</em> بعد هذا
+			الإدخال؟ يكمن الابتكار الجوهري وقوة المحوِّلات في استخدامها لآلية الانتباه الذاتي
+			(self-attention)، التي تتيح لها معالجة التسلسلات كاملةً والتقاط العلاقات بعيدة المدى بفعالية
+			أكبر من البنى السابقة.</p> <p class="svelte-shfncm">تُعد عائلة نماذج GPT-2 من الأمثلة البارزة على المحوِّلات المولِّدة للنص. يعمل «شارح
+			المحوِّلات» بواسطة نموذج
+			<a href="https://huggingface.co/openai-community/gpt2" title="Hugging Face" target="_blank" class="svelte-shfncm">GPT-2</a>
+			(الصغير) الذي يضم 124 مليون مُعامِل. ورغم أنه ليس أحدث نماذج المحوِّلات أو أقواها، فإنه يشترك
+			في كثير من المكونات والمبادئ المعمارية الموجودة في أحدث النماذج الحالية، مما يجعله نقطة
+			انطلاق مثالية لفهم الأساسيات.</p></div> <div class="article-section svelte-shfncm" data-click="article-overview" data-svelte-h="svelte-1q5e88r"><h1 class="svelte-shfncm">بنية المحوِّل (Transformer Architecture)</h1> <p class="svelte-shfncm">يتكوّن كل محوِّل مولِّد للنص من هذه <strong>المكونات الرئيسية الثلاثة</strong>:</p> <ol class="svelte-shfncm"><li class="svelte-shfncm"><strong class="bold-purple svelte-shfncm">التضمين (Embedding)</strong>: يُقسَّم النص المُدخل إلى وحدات
+				أصغر تسمى الرموز (Tokens)، وقد تكون كلمات أو أجزاء كلمات. تُحوَّل هذه الرموز إلى متجهات
+				عددية تسمى التضمينات (Embeddings)، تلتقط المعنى الدلالي للكلمات.</li> <li class="svelte-shfncm"><strong class="bold-purple svelte-shfncm">كتلة المحوِّل (Transformer Block)</strong> هي وحدة البناء
+				الأساسية في النموذج التي تعالج البيانات المُدخلة وتحوِّلها. تتضمن كل كتلة:
+				<ul class=" svelte-shfncm"><li class="svelte-shfncm"><strong>آلية الانتباه (Attention Mechanism)</strong>، المكوّن الجوهري في كتلة
+						المحوِّل. تتيح للرموز التواصل مع الرموز الأخرى، فتلتقط المعلومات السياقية والعلاقات
+						بين الكلمات.</li> <li class="svelte-shfncm"><strong>طبقة الشبكة العصبية متعددة الطبقات (MLP)</strong>، وهي شبكة تغذية أمامية تعمل
+						على كل رمز على حدة. بينما تهدف طبقة الانتباه إلى توجيه المعلومات بين الرموز، فإن هدف
+						MLP هو صقل تمثيل كل رمز.</li></ul></li> <li class="svelte-shfncm"><strong class="bold-purple svelte-shfncm">احتمالات المخرجات (Output Probabilities)</strong>: تحوِّل
+				الطبقة الخطية النهائية وطبقة softmax التضمينات المُعالجة إلى احتمالات، مما يمكّن النموذج
+				من التنبؤ بالرمز التالي في التسلسل.</li></ol></div> <div class="article-section svelte-shfncm" id="embedding" data-click="article-embedding" data-svelte-h="svelte-1pkv3lk"><h2 class="svelte-shfncm">التضمين (Embedding)</h2> <p class="svelte-shfncm">لنفترض أنك تريد توليد نص باستخدام نموذج محوِّل. تضيف نصًا مثل هذا:
+			<code class="svelte-shfncm">“Data visualization empowers users to”</code>. يجب تحويل هذا الإدخال إلى صيغة يستطيع
+			النموذج فهمها ومعالجتها. وهنا يأتي دور التضمين: فهو يحوِّل النص إلى تمثيل عددي يمكن للنموذج
+			العمل به. لتحويل النص إلى تضمين، نحتاج إلى: 1) تقسيم الإدخال إلى رموز، 2) الحصول على تضمينات
+			الرموز، 3) إضافة معلومات الموضع، وأخيرًا 4) جمع ترميزات الرموز والمواضع للحصول على التضمين
+			النهائي. لنرَ كيف تُنفَّذ كل خطوة من هذه الخطوات.</p> <div class="figure svelte-shfncm"><img src="./article_assets/embedding.png" width="65%" class="svelte-shfncm"></div> <div class="figure-caption svelte-shfncm">الشكل <span class="attention">1</span>. عرض موسَّع لطبقة التضمين (Embedding) يوضح كيفية تحويل
+			النص المُدخل إلى تمثيل متجهي. تتضمن العملية <span class="fig-numbering">(1)</span> التقسيم إلى
+			رموز، (2) تضمين الرموز، (3) الترميز الموضعي، و(4) التضمين النهائي. (الشكل باللغة الإنجليزية.)</div> <div class="article-subsection svelte-shfncm"><h3 class="svelte-shfncm">الخطوة 1: التقسيم إلى رموز (Tokenization)</h3> <p class="svelte-shfncm">التقسيم إلى رموز هو عملية تجزئة النص المُدخل إلى قطع أصغر يسهل التعامل معها تسمى الرموز
+				(Tokens). قد يكون الرمز كلمة أو جزءًا من كلمة. تقابل الكلمتان <code class="svelte-shfncm">&quot;Data&quot;</code>
+				و<code class="svelte-shfncm">&quot;visualization&quot;</code> رمزين فريدين، بينما تُقسَّم كلمة
+				<code class="svelte-shfncm">&quot;empowers&quot;</code>
+				إلى رمزين. تُحدَّد المفردات الكاملة للرموز قبل تدريب النموذج: تضم مفردات GPT-2
+				<code class="svelte-shfncm">50,257</code> رمزًا فريدًا. والآن بعد أن قسّمنا النص المُدخل إلى رموز ذات معرِّفات مميزة،
+				يمكننا الحصول على تمثيلها المتجهي من التضمينات.</p></div> <div class="article-subsection svelte-shfncm" id="article-token-embedding"><h3 class="svelte-shfncm">الخطوة 2. تضمين الرموز (Token Embedding)</h3> <p class="svelte-shfncm">يمثّل GPT-2 (الصغير) كل رمز في المفردات بمتجه ذي 768 بُعدًا؛ ويعتمد بُعد المتجه على
+				النموذج. تُخزَّن متجهات التضمين هذه في مصفوفة بأبعاد <code class="svelte-shfncm">(50,257, 768)</code> تحتوي على
+				نحو 39 مليون مُعامِل! تتيح هذه المصفوفة الضخمة للنموذج إسناد معنى دلالي لكل رمز.</p></div> <div class="article-subsection svelte-shfncm" id="article-positional-embedding"><h3 class="svelte-shfncm">الخطوة 3. الترميز الموضعي (Positional Encoding)</h3> <p class="svelte-shfncm">تُرمِّز طبقة التضمين أيضًا معلومات عن موضع كل رمز في النص المُدخل. تستخدم النماذج المختلفة
+				طرقًا متنوعة للترميز الموضعي. يدرّب GPT-2 مصفوفة الترميز الموضعي الخاصة به من الصفر،
+				مدمجًا إياها مباشرة في عملية التدريب.</p> </div> <div class="article-subsection svelte-shfncm"><h3 class="svelte-shfncm">الخطوة 4. التضمين النهائي (Final Embedding)</h3> <p class="svelte-shfncm">أخيرًا، نجمع ترميزات الرموز والترميزات الموضعية للحصول على تمثيل التضمين النهائي. يلتقط
+				هذا التمثيل المُجمَّع المعنى الدلالي للرموز وموضعها في تسلسل الإدخال معًا.</p></div></div> <div class="article-section svelte-shfncm" data-click="article-transformer-block" data-svelte-h="svelte-q3rcf4"><h2 class="svelte-shfncm">كتلة المحوِّل (Transformer Block)</h2> <p class="svelte-shfncm">يكمن جوهر معالجة المحوِّل في كتلة المحوِّل، التي تضم الانتباه الذاتي متعدد الرؤوس وطبقة
+			الشبكة العصبية متعددة الطبقات (MLP). تتكون معظم النماذج من عدة كتل من هذا النوع مكدَّسة
+			تسلسليًا واحدة تلو الأخرى. تتطور تمثيلات الرموز عبر الطبقات، من الكتلة الأولى إلى الأخيرة،
+			مما يتيح للنموذج بناء فهم دقيق لكل رمز. يؤدي هذا النهج الطبقي إلى تمثيلات أعلى مستوى
+			للإدخال. يتكون نموذج GPT-2 (الصغير) الذي ندرسه من <code class="svelte-shfncm">12</code> كتلة من هذا النوع.</p></div> <div class="article-section svelte-shfncm" id="self-attention" data-click="article-attention"><h3 class="svelte-shfncm" data-svelte-h="svelte-1nos2up">الانتباه الذاتي متعدد الرؤوس (Multi-Head Self-Attention)</h3> <p class="svelte-shfncm" data-svelte-h="svelte-1mnbrjo">تمكِّن آلية الانتباه الذاتي النموذج من التركيز على الأجزاء المهمة من تسلسل الإدخال، مما يتيح
+			له التقاط العلاقات والارتباطات المعقدة داخل البيانات. لنستعرض كيفية حساب هذا الانتباه الذاتي
+			خطوة بخطوة.</p> <div class="article-subsection-l2 svelte-shfncm"><h4 class="svelte-shfncm" data-svelte-h="svelte-iwxm5i">الخطوة 1: مصفوفات الاستعلام (Query) والمفتاح (Key) والقيمة (Value)</h4> <div class="figure pt-10 svelte-shfncm"><img src="./article_assets/QKV.png" width="80%" class="svelte-shfncm"> <div class="text-xs svelte-shfncm"> <!-- HTML_TAG_START --><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>Q</mi><mi>K</mi><msub><mi>V</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><mo stretchy="false">(</mo><munderover><mo>∑</mo><mrow><mi>d</mi><mo>=</mo><mn>1</mn></mrow><mn>768</mn></munderover><msub><mtext>Embedding</mtext><mrow><mi>i</mi><mo separator="true">,</mo><mi>d</mi></mrow></msub><mo>⋅</mo><msub><mtext>Weights</mtext><mrow><mi>d</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mtext>Bias</mtext><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">
+		QKV_{ij} = ( \sum_{d=1}^{768} \text{Embedding}_{i,d} \cdot \text{Weights}_{d,j}) + \text{Bias}_j
+		</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord mathnormal">Q</span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.2222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:3.1032em;vertical-align:-1.3021em;"></span><span class="mopen">(</span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8011em;"><span style="top:-1.8479em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">768</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.3021em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord text"><span class="mord">Embedding</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.242em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3802em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1302em;vertical-align:-0.3802em;"></span><span class="mord"><span class="mord text"><span class="mord">Weights</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.242em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3802em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord text"><span class="mord">Bias</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span><!-- HTML_TAG_END --></div></div> <div class="figure-caption svelte-shfncm" data-svelte-h="svelte-1o2ew1y">الشكل <span class="attention">2</span>. حساب مصفوفات الاستعلام (Query) والمفتاح (Key)
+				والقيمة (Value) من التضمين الأصلي. (الشكل باللغة الإنجليزية.)</div> <p class="svelte-shfncm" data-svelte-h="svelte-gov7za">يُحوَّل متجه التضمين لكل رمز إلى ثلاثة متجهات:
+				<span class="q-color svelte-shfncm">الاستعلام (Q)</span>
+				و<span class="k-color svelte-shfncm">المفتاح (K)</span>
+				و<span class="v-color svelte-shfncm">القيمة (V)</span>. تُشتق هذه المتجهات بضرب مصفوفة تضمين الإدخال في
+				مصفوفات أوزان مُتعلَّمة لكل من
+				<span class="q-color svelte-shfncm">Q</span>
+				و<span class="k-color svelte-shfncm">K</span>
+				و<span class="v-color svelte-shfncm">V</span>. وإليك تشبيهًا بالبحث في الويب يساعدنا على بناء حدس حول
+				هذه المصفوفات:</p> <ul class="svelte-shfncm" data-svelte-h="svelte-165qdp8"><li class="svelte-shfncm"><strong class="q-color font-medium svelte-shfncm">الاستعلام (Query)</strong> هو نص البحث الذي تكتبه في
+					شريط محرك البحث. إنه الرمز الذي تريد
+					<em>«إيجاد مزيد من المعلومات عنه»</em>.</li> <li class="svelte-shfncm"><strong class="k-color font-medium svelte-shfncm">المفتاح (Key)</strong> هو عنوان كل صفحة ويب في نافذة
+					نتائج البحث. يمثّل الرموز المحتملة التي يمكن للاستعلام الانتباه إليها.</li> <li class="svelte-shfncm"><strong class="v-color font-medium svelte-shfncm">القيمة (Value)</strong> هي المحتوى الفعلي لصفحات
+					الويب المعروضة. بعد أن طابقنا مصطلح البحث المناسب (الاستعلام) مع النتائج ذات الصلة
+					(المفتاح)، نريد الحصول على محتوى (القيمة) الصفحات الأكثر صلة.</li></ul> <p class="svelte-shfncm" data-svelte-h="svelte-1bz54u2">باستخدام قيم QKV هذه، يستطيع النموذج حساب درجات الانتباه التي تحدد مقدار التركيز الذي
+				ينبغي أن يحظى به كل رمز عند توليد التنبؤات.</p></div> <div class="article-subsection-l2 svelte-shfncm" data-svelte-h="svelte-1b37iq2"><h4 class="svelte-shfncm">الخطوة 2: التقسيم إلى رؤوس متعددة (Multi-Head Splitting)</h4> <p class="svelte-shfncm">تُقسَّم متجهات <span class="q-color svelte-shfncm">الاستعلام</span> و<span class="k-color svelte-shfncm">المفتاح</span>
+				و<span class="v-color svelte-shfncm">القيمة</span>
+				إلى عدة رؤوس — في حالة GPT-2 (الصغير)، إلى
+				<code class="svelte-shfncm">12</code> رأسًا. يعالج كل رأس جزءًا من التضمينات على نحو مستقل، ملتقطًا علاقات نحوية
+				ودلالية مختلفة. يسهّل هذا التصميم التعلم المتوازي لسمات لغوية متنوعة، مما يعزز القدرة
+				التمثيلية للنموذج.</p></div> <div class="article-subsection-l2 svelte-shfncm" data-svelte-h="svelte-3vbgee"><h4 class="svelte-shfncm">الخطوة 3: الانتباه الذاتي المُقنَّع (Masked Self-Attention)</h4> <p class="svelte-shfncm">في كل رأس، نُجري حسابات الانتباه الذاتي المُقنَّع. تتيح هذه الآلية للنموذج توليد التسلسلات
+				بالتركيز على الأجزاء المهمة من الإدخال مع منع الوصول إلى الرموز المستقبلية.</p> <div class="figure svelte-shfncm"><img src="./article_assets/attention.png" width="80%" align="middle" class="svelte-shfncm"></div> <div class="figure-caption svelte-shfncm">الشكل <span class="attention">3</span>. استخدام مصفوفات الاستعلام والمفتاح والقيمة لحساب
+				الانتباه الذاتي المُقنَّع. (الشكل باللغة الإنجليزية.)</div> <ul class="svelte-shfncm"><li class="svelte-shfncm"><strong>درجة الانتباه (Attention Score)</strong>: يحدد الضرب النقطي لمصفوفتَي
+					<span class="q-color svelte-shfncm">الاستعلام</span>
+					و<span class="k-color svelte-shfncm">المفتاح</span> مدى توافق كل استعلام مع كل مفتاح، منتجًا مصفوفة
+					مربعة تعكس العلاقة بين جميع رموز الإدخال.</li> <li class="svelte-shfncm"><strong>التقنيع (Masking)</strong>: يُطبَّق قناع على المثلث العلوي من مصفوفة الانتباه
+					لمنع النموذج من الوصول إلى الرموز المستقبلية، بتعيين هذه القيم إلى سالب اللانهاية. يجب
+					أن يتعلم النموذج كيفية التنبؤ بالرمز التالي دون «اختلاس النظر» إلى المستقبل.</li> <li class="svelte-shfncm"><strong>Softmax</strong>: بعد التقنيع، تُحوَّل درجة الانتباه إلى احتمال بواسطة عملية
+					softmax التي تأخذ الدالة الأسية لكل درجة انتباه. يبلغ مجموع كل صف في المصفوفة واحدًا،
+					ويشير إلى مدى صلة كل رمز من الرموز السابقة له.</li></ul></div> <div class="article-subsection-l2 svelte-shfncm" data-svelte-h="svelte-bvofpo"><h4 class="svelte-shfncm">الخطوة 4: المخرجات والدمج (Output and Concatenation)</h4> <p class="svelte-shfncm">يستخدم النموذج درجات الانتباه الذاتي المُقنَّع ويضربها في مصفوفة
+				<span class="v-color svelte-shfncm">القيمة</span> للحصول على
+				<span class="purple-color svelte-shfncm">المخرجات النهائية</span>
+				لآلية الانتباه الذاتي. يمتلك GPT-2 <code class="svelte-shfncm">12</code> رأس انتباه ذاتي، يلتقط كل منها علاقات
+				مختلفة بين الرموز. تُدمَج مخرجات هذه الرؤوس وتُمرَّر عبر إسقاط خطي.</p></div></div> <div class="article-section svelte-shfncm" id="article-activation" data-click="article-mlp" data-svelte-h="svelte-h16705"><h3 class="svelte-shfncm">الشبكة العصبية متعددة الطبقات (MLP: Multi-Layer Perceptron)</h3> <div class="figure svelte-shfncm"><img src="./article_assets/mlp.png" width="70%" align="middle" class="svelte-shfncm"></div> <div class="figure-caption svelte-shfncm">الشكل <span class="attention">4</span>. استخدام طبقة MLP لإسقاط تمثيلات الانتباه الذاتي في
+			أبعاد أعلى لتعزيز القدرة التمثيلية للنموذج. (الشكل باللغة الإنجليزية.)</div> <p class="svelte-shfncm">بعد أن تلتقط رؤوس الانتباه الذاتي المتعددة العلاقات المتنوعة بين رموز الإدخال، تُمرَّر
+			المخرجات المدموجة عبر طبقة الشبكة العصبية متعددة الطبقات (MLP) لتعزيز القدرة التمثيلية
+			للنموذج. تتكون كتلة MLP من تحويلين خطيين بينهما دالة تفعيل GELU. يزيد التحويل الخطي الأول
+			أبعاد الإدخال أربعة أضعاف من <code class="svelte-shfncm">768</code>
+			إلى <code class="svelte-shfncm">3072</code>. ويعيد التحويل الخطي الثاني الأبعاد إلى حجمها الأصلي
+			<code class="svelte-shfncm">768</code>، مما يضمن أن تتلقى الطبقات اللاحقة مدخلات ذات أبعاد متسقة. وعلى خلاف آلية
+			الانتباه الذاتي، تعالج MLP الرموز على نحو مستقل، وتكتفي بنقلها من تمثيل إلى آخر.</p></div> <div class="article-section svelte-shfncm" id="article-prob" data-click="article-prob" data-svelte-h="svelte-nmohst"><h2 class="svelte-shfncm">احتمالات المخرجات (Output Probabilities)</h2> <p class="svelte-shfncm">بعد معالجة الإدخال عبر جميع كتل المحوِّل، تُمرَّر المخرجات عبر الطبقة الخطية النهائية
+			لتجهيزها للتنبؤ بالرمز. تُسقِط هذه الطبقة التمثيلات النهائية في فضاء ذي
+			<code class="svelte-shfncm">50,257</code>
+			بُعدًا، حيث يكون لكل رمز في المفردات قيمة مقابلة تسمى
+			<code class="svelte-shfncm">logit</code>. يمكن لأي رمز أن يكون الكلمة التالية، لذا تتيح لنا هذه العملية ببساطة
+			ترتيب هذه الرموز حسب احتمال كونها تلك الكلمة التالية. ثم نطبّق دالة softmax لتحويل اللوجيتات
+			إلى توزيع احتمالي مجموعه واحد. وهذا يتيح لنا أخذ عينة للرمز التالي بناءً على احتماله.</p> <div class="figure py-5 svelte-shfncm"><img src="./article_assets/softmax.png" width="70%" class="svelte-shfncm"></div> <div class="figure-caption svelte-shfncm">الشكل <span class="attention">5</span>. يُسنَد لكل رمز في المفردات احتمال بناءً على لوجيتات
+			مخرجات النموذج. تحدد هذه الاحتمالات مدى ترجيح كون كل رمز الكلمة التالية في التسلسل. (الشكل
+			باللغة الإنجليزية.)</div> <p id="article-temperature" data-click="article-temperature" class="svelte-shfncm">الخطوة الأخيرة هي توليد الرمز التالي بأخذ عينة من هذا التوزيع. يؤدي المُعامِل الفائق
+			<code class="svelte-shfncm">temperature</code>
+			(درجة الحرارة) دورًا حاسمًا في هذه العملية. ومن الناحية الرياضية، إنها عملية بسيطة جدًا: تُقسم
+			لوجيتات مخرجات النموذج ببساطة على قيمة
+			<code class="svelte-shfncm">temperature</code>:</p> <ul class="svelte-shfncm"><li class="svelte-shfncm"><code class="svelte-shfncm">temperature = 1</code>: قسمة اللوجيتات على واحد لا تؤثر في مخرجات softmax.</li> <li class="svelte-shfncm"><code class="svelte-shfncm">temperature &lt; 1</code>: درجة الحرارة المنخفضة تجعل النموذج أكثر ثقة وحسمًا عبر
+				شحذ التوزيع الاحتمالي، مما يؤدي إلى مخرجات أكثر قابلية للتنبؤ.</li> <li class="svelte-shfncm"><code class="svelte-shfncm">temperature &gt; 1</code>: درجة الحرارة المرتفعة تنتج توزيعًا احتماليًا أكثر
+				ليونة، مما يسمح بمزيد من العشوائية في النص المولَّد — وهو ما يسميه البعض
+				<em>«إبداع»</em> النموذج.</li></ul> <p id="article-sampling" data-click="article-sampling" class="svelte-shfncm">إضافة إلى ذلك، يمكن ضبط عملية أخذ العينات بدقة أكبر باستخدام مُعامِلَي <code class="svelte-shfncm">top-k</code>
+			و<code class="svelte-shfncm">top-p</code>:</p> <ul class="svelte-shfncm"><li class="svelte-shfncm"><code class="svelte-shfncm">top-k sampling</code>: يحصر الرموز المرشحة في أعلى k رمزًا من حيث الاحتمال،
+				مستبعدًا الخيارات الأقل ترجيحًا.</li> <li class="svelte-shfncm"><code class="svelte-shfncm">top-p sampling</code>: يأخذ في الاعتبار أصغر مجموعة من الرموز يتجاوز مجموع
+				احتمالاتها التراكمي العتبة p، مما يضمن إسهام الرموز الأكثر ترجيحًا فقط مع السماح
+				بالتنوع في الوقت نفسه.</li></ul> <p class="svelte-shfncm">بضبط <code class="svelte-shfncm">temperature</code> و<code class="svelte-shfncm">top-k</code> و<code class="svelte-shfncm">top-p</code>، يمكنك الموازنة بين
+			مخرجات حاسمة وأخرى متنوعة، بما يلائم سلوك النموذج مع احتياجاتك الخاصة.</p></div> <div class="article-section svelte-shfncm" data-click="article-advanced-features" data-svelte-h="svelte-h2lue"><h2 class="svelte-shfncm">سمات معمارية متقدمة (Advanced Architectural Features)</h2> <p class="svelte-shfncm">هناك عدة سمات معمارية متقدمة تعزز أداء نماذج المحوِّلات. ورغم أهميتها للأداء العام للنموذج،
+			فإنها ليست بالأهمية نفسها لفهم المفاهيم الجوهرية للبنية. تُعد تسوية الطبقة (Layer
+			Normalization) والإسقاط (Dropout) والوصلات المتبقية (Residual Connections) مكونات حاسمة في
+			نماذج المحوِّلات، لا سيما خلال مرحلة التدريب. تعمل تسوية الطبقة على استقرار التدريب وتساعد
+			النموذج على التقارب أسرع. ويمنع الإسقاط فرط التخصيص عبر تعطيل الخلايا العصبية عشوائيًا. أما
+			الوصلات المتبقية فتتيح تدفق التدرجات مباشرة عبر الشبكة وتساعد على تفادي مشكلة تلاشي التدرج.</p> <div class="article-subsection svelte-shfncm" id="article-ln"><h3 class="svelte-shfncm">تسوية الطبقة (Layer Normalization)</h3> <p class="svelte-shfncm">تساعد تسوية الطبقة على استقرار عملية التدريب وتحسّن التقارب. تعمل عبر تسوية المدخلات على
+				امتداد السمات، بما يضمن اتساق متوسط التفعيلات وتباينها. تساعد هذه التسوية على التخفيف من
+				المشكلات المرتبطة بالانزياح المتغاير الداخلي، مما يتيح للنموذج التعلم بفعالية أكبر ويقلل
+				الحساسية للأوزان الأولية. تُطبَّق تسوية الطبقة مرتين في كل كتلة محوِّل: مرة قبل آلية
+				الانتباه الذاتي ومرة قبل طبقة MLP.</p></div> <div class="article-subsection svelte-shfncm" id="article-dropout"><h3 class="svelte-shfncm">الإسقاط (Dropout)</h3> <p class="svelte-shfncm">الإسقاط تقنية تنظيم تُستخدم لمنع فرط التخصيص في الشبكات العصبية عبر تعيين جزء من أوزان
+				النموذج عشوائيًا إلى الصفر أثناء التدريب. يشجع هذا النموذج على تعلم سمات أكثر متانة ويقلل
+				الاعتماد على خلايا عصبية بعينها، مما يساعد الشبكة على التعميم بشكل أفضل على بيانات جديدة
+				لم ترها من قبل. يُعطَّل الإسقاط أثناء استدلال النموذج، وهذا يعني في جوهره أننا نستخدم
+				مجموعة من الشبكات الفرعية المدرَّبة، مما يؤدي إلى أداء أفضل للنموذج.</p></div> <div class="article-subsection svelte-shfncm" id="article-residual"><h3 class="svelte-shfncm">الوصلات المتبقية (Residual Connections)</h3> <p class="svelte-shfncm">قُدِّمت الوصلات المتبقية لأول مرة في نموذج ResNet عام 2015. أحدث هذا الابتكار المعماري
+				ثورة في التعلم العميق بتمكينه من تدريب شبكات عصبية عميقة جدًا. الوصلات المتبقية في جوهرها
+				اختصارات تتجاوز طبقة أو أكثر، بإضافة مُدخل الطبقة إلى مُخرجها. يساعد هذا على التخفيف من
+				مشكلة تلاشي التدرج، مما يسهّل تدريب الشبكات العميقة التي تتكدس فيها عدة كتل محوِّل فوق
+				بعضها. في GPT-2، تُستخدم الوصلات المتبقية مرتين داخل كل كتلة محوِّل: مرة قبل MLP ومرة
+				بعدها، بما يضمن تدفق التدرجات بسهولة أكبر وحصول الطبقات الأولى على تحديثات كافية أثناء
+				الانتشار الخلفي.</p></div></div> <div class="article-section svelte-shfncm" data-click="article-interactive-features" data-svelte-h="svelte-100ikmc"><h1 class="svelte-shfncm">الميزات التفاعلية (Interactive Features)</h1> <p class="svelte-shfncm">صُمم «شارح المحوِّلات» ليكون تفاعليًا ويتيح لك استكشاف الآليات الداخلية للمحوِّل. إليك بعض
+			الميزات التفاعلية التي يمكنك تجربتها:</p> <ul class="svelte-shfncm"><li class="svelte-shfncm"><strong>أدخِل نصك الخاص</strong> لترى كيف يعالجه النموذج ويتنبأ بالكلمة التالية. استكشف
+				أوزان الانتباه والحسابات الوسيطة، وشاهد كيف تُحسب احتمالات المخرجات النهائية. (يجب أن يكون
+				النص المُدخل باللغة الإنجليزية، لأن GPT-2 نموذج مدرَّب على اللغة الإنجليزية.)</li> <li class="svelte-shfncm"><strong>استخدم شريط درجة الحرارة (Temperature)</strong> للتحكم في عشوائية تنبؤات النموذج.
+				استكشف كيف يمكنك جعل مخرجات النموذج أكثر حسمًا أو أكثر إبداعًا بتغيير قيمة درجة الحرارة.</li> <li class="svelte-shfncm"><strong>اختر طريقتَي أخذ العينات top-k وtop-p</strong> لضبط سلوك أخذ العينات أثناء
+				الاستدلال. جرّب قيمًا مختلفة وشاهد كيف يتغير التوزيع الاحتمالي ويؤثر في تنبؤات النموذج.</li> <li class="svelte-shfncm"><strong>تفاعل مع خرائط الانتباه</strong> لترى كيف يركّز النموذج على الرموز المختلفة في
+				تسلسل الإدخال. مرِّر المؤشر فوق الرموز لإبراز أوزان انتباهها، واستكشف كيف يلتقط النموذج
+				السياق والعلاقات بين الكلمات.</li></ul></div> <div class="article-section svelte-shfncm" data-click="article-video" data-svelte-h="svelte-1mkfy8q"><h2 class="svelte-shfncm">الشرح المرئي (Video Tutorial)</h2> <div class="video-container svelte-shfncm"><iframe src="https://www.youtube.com/embed/ECR4oAwocjs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="svelte-shfncm"></iframe></div></div> <div class="article-section svelte-shfncm" data-click="article-implementation" data-svelte-h="svelte-3bv2xc"><h2 class="svelte-shfncm">كيف نُفِّذ «شارح المحوِّلات»؟</h2> <p class="svelte-shfncm">يعرض «شارح المحوِّلات» نموذج GPT-2 (الصغير) يعمل مباشرة في المتصفح. هذا النموذج مشتق من
+			تنفيذ PyTorch لنموذج GPT في مشروع
+			<a href="https://github.com/karpathy/nanoGPT" title="Github" target="_blank" class="svelte-shfncm">nanoGPT</a>
+			لأندريه كارباثي (Andrej Karpathy)، وجرى تحويله إلى
+			<a href="https://onnxruntime.ai/" title="ONNX" target="_blank" class="svelte-shfncm">ONNX Runtime</a>
+			ليعمل بسلاسة داخل المتصفح. بُنيت الواجهة باستخدام JavaScript، مع
+			<a href="https://kit.svelte.dev/" title="Svelte" target="_blank" class="svelte-shfncm">Svelte</a>
+			إطارًا للواجهة الأمامية و<a href="https://d3js.org/" title="D3" target="_blank" class="svelte-shfncm">D3.js</a>
+			لإنشاء التصورات المرئية الديناميكية. تُحدَّث القيم العددية مباشرة تبعًا لإدخال المستخدم.</p></div> <div class="article-section svelte-shfncm" data-click="article-credit" data-svelte-h="svelte-1d6tg06"><h2 class="svelte-shfncm">من طوّر «شارح المحوِّلات»؟</h2> <p class="svelte-shfncm">أنشأ «شارح المحوِّلات» كلٌّ من
+
+			<a href="https://aereeeee.github.io/" target="_blank" class="svelte-shfncm">Aeree Cho</a>
+			و<a href="https://www.linkedin.com/in/chaeyeonggracekim/" target="_blank" class="svelte-shfncm">Grace C. Kim</a>
+			و<a href="https://alexkarpekov.com/" target="_blank" class="svelte-shfncm">Alexander Karpekov</a>
+			و<a href="https://alechelbling.com/" target="_blank" class="svelte-shfncm">Alec Helbling</a>
+			و<a href="https://zijie.wang/" target="_blank" class="svelte-shfncm">Jay Wang</a>
+			و<a href="https://seongmin.xyz/" target="_blank" class="svelte-shfncm">Seongmin Lee</a>
+			و<a href="https://bhoov.com/" target="_blank" class="svelte-shfncm">Benjamin Hoover</a>
+			و<a href="https://poloclub.github.io/polochau/" target="_blank" class="svelte-shfncm">Polo Chau</a>
+
+			في معهد جورجيا للتقنية (Georgia Institute of Technology).</p></div> </div></div></div>  
+			
+			<script>
+				{
+					__sveltekit_146m64c = {
+						base: new URL(".", location).pathname.slice(0, -1),
+						assets: "/transformer-explainer"
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("./_app/immutable/entry/start.EFyQ5MlG.js"),
+						import("./_app/immutable/entry/app.B5fDJ1hL.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 2],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
